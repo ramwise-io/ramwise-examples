@@ -1,0 +1,35 @@
+# ramwise-examples
+
+Runnable companion code for the field notes at **[ramwise.dev](https://ramwise.dev)**.
+
+Each folder is a small, self-contained, tested example that makes one post's
+core idea concrete. These are **teaching implementations** — freshly written to
+illustrate a concept, not production libraries. They lean on the Python standard
+library wherever possible, so most run with no dependencies at all.
+
+| Example | The idea | Post |
+|---|---|---|
+| [`tiny-search`](tiny-search/) | An inverted index is the right *shape* for the data; scoring touches only the docs a query term points to — plus a benchmark that humbles the demo | [I Built a Search Engine by Hand](https://ramwise.dev/blog/i-built-a-search-engine-by-hand/) |
+| [`incremental-load-patterns`](incremental-load-patterns/) | The naive timestamp-watermark **tie bug**, live, and the composite-watermark fix | [Incremental Load Is Not One Thing](https://ramwise.dev/blog/incremental-load-patterns/) |
+| [`semantic-sql`](semantic-sql/) | A semantic layer as the unlock, and a verification gate that blocks a hallucinated query before it runs | [I Taught an LLM to Query Data in English](https://ramwise.dev/blog/i-taught-an-llm-to-query-data-in-english/) |
+| [`date-dimension`](date-dimension/) | Persist the deterministic core; compute the today-relative fields at the edge | [Your Date Dimension Is Not Static](https://ramwise.dev/blog/date-dimension-not-static/) |
+
+## Running
+
+Each folder has a `README`, a runnable module, and tests:
+
+```bash
+cd tiny-search
+python tiny_search.py          # a demo
+python test_tiny_search.py     # tests — every folder's tests also run under pytest
+```
+
+Run every test suite:
+
+```bash
+python -m pytest    # or: for d in */; do (cd "$d" && python test_*.py); done
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE).

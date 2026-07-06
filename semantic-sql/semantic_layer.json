@@ -1,0 +1,25 @@
+{
+  "tables": {
+    "customers": {
+      "meaning": "One row per customer.",
+      "columns": {
+        "cust_id": "Primary key, the customer's id.",
+        "ctry": "The customer's country, as a 2-letter code.",
+        "seg": "Marketing segment: 'consumer' or 'business'."
+      }
+    },
+    "orders": {
+      "meaning": "One row per order placed by a customer.",
+      "columns": {
+        "ord_id": "Primary key, the order's id.",
+        "cust_id": "Foreign key to customers.cust_id.",
+        "amt": "Order amount (revenue) in dollars.",
+        "sts": "Order status: 'paid', 'pending', or 'refunded'.",
+        "ord_dt": "The date the order was placed (YYYY-MM-DD)."
+      }
+    }
+  },
+  "joins": [
+    "orders.cust_id = customers.cust_id"
+  ]
+}
