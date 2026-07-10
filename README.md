@@ -13,6 +13,9 @@ library wherever possible, so most run with no dependencies at all.
 | [`incremental-load-patterns`](incremental-load-patterns/) | The naive timestamp-watermark **tie bug**, live, and the composite-watermark fix | [Incremental Load Is Not One Thing](https://ramwise.dev/blog/incremental-load-patterns/) |
 | [`semantic-sql`](semantic-sql/) | A semantic layer as the unlock, and a verification gate that blocks a hallucinated query before it runs | [I Taught an LLM to Query Data in English](https://ramwise.dev/blog/i-taught-an-llm-to-query-data-in-english/) |
 | [`date-dimension`](date-dimension/) | Persist the deterministic core; compute the today-relative fields at the edge | [Your Date Dimension Is Not Static](https://ramwise.dev/blog/date-dimension-not-static/) |
+| [`recipe-ratios`](recipe-ratios/) | A cookie's effective fat-to-flour ratio is a validation range — reject the physically-impossible recipe before the oven | [You Can Check a Cookie](https://ramwise.dev/blog/you-can-check-a-cookie/) |
+| [`sql-pipeline-runner`](sql-pipeline-runner/) | `compile → run → assert → emit`: assertions gate the run before bad data lands, and exit codes say who to page | [Keep the Runner Dumb](https://ramwise.dev/blog/keep-the-runner-dumb/) |
+| [`evidence-weight`](evidence-weight/) | Belief-strength and agreement as separate axes, independence discounting, and a conflict router that refuses "latest wins" | [Weight Isn't Agreement](https://ramwise.dev/blog/weight-isnt-agreement/) |
 
 ## Running
 
