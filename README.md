@@ -16,6 +16,7 @@ library wherever possible, so most run with no dependencies at all.
 | [`recipe-ratios`](recipe-ratios/) | A cookie's effective fat-to-flour ratio is a validation range — reject the physically-impossible recipe before the oven | [You Can Check a Cookie](https://ramwise.dev/blog/you-can-check-a-cookie/) |
 | [`sql-pipeline-runner`](sql-pipeline-runner/) | `compile → run → assert → emit`: assertions gate the run before bad data lands, and exit codes say who to page | [Keep the Runner Dumb](https://ramwise.dev/blog/keep-the-runner-dumb/) |
 | [`evidence-weight`](evidence-weight/) | Belief-strength and agreement as separate axes, independence discounting, and a conflict router that refuses "latest wins" | [Weight Isn't Agreement](https://ramwise.dev/blog/weight-isnt-agreement/) |
+| [`fastpitch-per-phoneme`](fastpitch-per-phoneme/) | Slow speech per phoneme (hold vowels, keep stops crisp) with FastPitch's per-token `pace` — a GPU/Colab notebook, not zero-dep | [Generate Slow, Don't Slow the Generation](https://ramwise.dev/blog/generate-slow-dont-slow-the-generation/) |
 
 ## Running
 
@@ -32,6 +33,9 @@ Run every test suite:
 ```bash
 python -m pytest    # or: for d in */; do (cd "$d" && python test_*.py); done
 ```
+
+The one exception is [`fastpitch-per-phoneme`](fastpitch-per-phoneme/), a
+GPU/Colab teaching notebook rather than a zero-dependency module.
 
 ## License
 
