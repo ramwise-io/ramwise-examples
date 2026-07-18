@@ -1,0 +1,2 @@
+order_id,customer_id,sku,quantity,revenue,discount
+1006,60,PQR-6,2,24.00,3.00

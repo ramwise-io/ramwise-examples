@@ -17,6 +17,7 @@ library wherever possible, so most run with no dependencies at all.
 | [`sql-pipeline-runner`](sql-pipeline-runner/) | `compile → run → assert → emit`: assertions gate the run before bad data lands, and exit codes say who to page | [Keep the Runner Dumb](https://ramwise.dev/blog/keep-the-runner-dumb/) |
 | [`evidence-weight`](evidence-weight/) | Belief-strength and agreement as separate axes, independence discounting, and a conflict router that refuses "latest wins" | [Weight Isn't Agreement](https://ramwise.dev/blog/weight-isnt-agreement/) |
 | [`fastpitch-per-phoneme`](fastpitch-per-phoneme/) | Slow speech per phoneme (hold vowels, keep stops crisp) with FastPitch's per-token `pace` — a GPU/Colab notebook, not zero-dep | [Generate Slow, Don't Slow the Generation](https://ramwise.dev/blog/generate-slow-dont-slow-the-generation/) |
+| [`preflight-check`](preflight-check/) | Fingerprint every file in a bulk-load set against a `name,type` baseline; name the golden/broken partition before the load runs — reports structure, never guesses a rename (needs `duckdb`) | [The Files That Break Your Bulk Load](https://ramwise.dev/blog/the-files-that-break-your-bulk-load/) |
 
 ## Running
 

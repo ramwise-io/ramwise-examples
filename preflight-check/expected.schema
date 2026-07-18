@@ -1,0 +1,6 @@
+# expected order-feed shape
+order_id,int
+customer_id,int
+sku,text
+quantity,int
+revenue,decimal

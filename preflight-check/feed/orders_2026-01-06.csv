@@ -1,0 +1,3 @@
+order_id,customer_id,sku,quantity,revenue
+1003,57,GHI-3,5,49.95
+1004,58,JKL-4,3,29.97
