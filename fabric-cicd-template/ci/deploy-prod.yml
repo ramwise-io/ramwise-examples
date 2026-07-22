@@ -1,0 +1,25 @@
+trigger: none
+pr: none
+
+variables:
+  - group: vg-fabric-<project>
+
+jobs:
+  - deployment: Deploy_Fabric_PROD
+    displayName: Deploy Fabric solution to PROD
+    environment: fabric-<project>-prod
+
+    pool:
+      vmImage: ubuntu-latest
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - template: /cicd/templates/deploy-fabric-steps.yml
+              parameters:
+                displayName: Deploy Fabric items to PROD
+                serviceConnection: sc-fabric-cicd
+                targetEnvironment: prod
+                workspaceId: $(FABRIC_PROD_WORKSPACE_ID)
+                configPath: fabric/solution/config.yml

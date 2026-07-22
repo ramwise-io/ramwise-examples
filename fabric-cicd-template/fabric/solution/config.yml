@@ -1,0 +1,10 @@
+core:
+  workspace_id: "00000000-0000-0000-0000-000000000000"
+  repository_directory: "."
+  parameter: "parameter.yml"
+
+publish:
+  skip: false
+
+unpublish:
+  skip: true

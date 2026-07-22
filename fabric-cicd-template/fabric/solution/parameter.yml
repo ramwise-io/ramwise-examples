@@ -1,0 +1,3 @@
+# Add only project-specific environment replacements that Fabric auto-binding
+# or Variable Libraries cannot handle.
+find_replace: []

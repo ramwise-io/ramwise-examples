@@ -1,0 +1,88 @@
+# Reusable Microsoft Fabric deployment steps.
+#
+# The template is intentionally project-agnostic. A consuming repository
+# supplies the service connection, target environment, workspace ID, and
+# project-local fabric-cicd config path.
+
+parameters:
+  - name: displayName
+    type: string
+    default: Deploy Fabric items
+
+  - name: serviceConnection
+    type: string
+
+  - name: targetEnvironment
+    type: string
+
+  - name: workspaceId
+    type: string
+
+  - name: configPath
+    type: string
+
+  - name: fabricCliVersion
+    type: string
+    default: "1.6.1"
+
+steps:
+  # Explicit checkout makes the template work in normal jobs and deployment
+  # jobs, where source checkout should not be assumed.
+  - checkout: self
+    clean: true
+
+  - task: UsePythonVersion@0
+    displayName: Use Python 3.12
+    inputs:
+      versionSpec: "3.12"
+      addToPath: true
+
+  - task: AzureCLI@2
+    displayName: ${{ parameters.displayName }}
+    inputs:
+      azureSubscription: ${{ parameters.serviceConnection }}
+
+      # With a workload-identity-federated service connection, Azure DevOps
+      # exposes servicePrincipalId, idToken, and tenantId to this task.
+      addSpnToEnvironment: true
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: |
+        set -euo pipefail
+
+        python -m pip install --quiet --upgrade pip
+        python -m pip install --quiet \
+          "ms-fabric-cli==${{ parameters.fabricCliVersion }}"
+
+        # Microsoft-hosted Linux agents do not expose a usable OS credential
+        # vault to Fabric CLI. The agent is ephemeral, so allow the CLI to use
+        # its plaintext fallback for this job only.
+        fab config set encryption_fallback_enabled true
+
+        # Always attempt to clear the Fabric CLI session on success or failure.
+        trap 'fab auth logout >/dev/null 2>&1 || true' EXIT
+
+        fab auth login \
+          --user "$servicePrincipalId" \
+          --federated-token "$idToken" \
+          --tenant "$tenantId"
+
+        CONFIG_FILE="$(Build.SourcesDirectory)/${{ parameters.configPath }}"
+
+        # config.yml contains a required placeholder workspace ID. Override it
+        # at runtime so TEST and PROD GUIDs stay outside Git.
+        CONFIG_OVERRIDE="$(
+          jq -nc \
+            --arg workspace_id "$FABRIC_TARGET_WORKSPACE_ID" \
+            '{core:{workspace_id:$workspace_id}}'
+        )"
+
+        # fabric-cicd discovers every supported Fabric item folder beneath the
+        # configured repository_directory. A failed deployment fails this task.
+        fab deploy \
+          --config "$CONFIG_FILE" \
+          --target_env "${{ parameters.targetEnvironment }}" \
+          -P "config_override=$CONFIG_OVERRIDE" \
+          --force
+    env:
+      FABRIC_TARGET_WORKSPACE_ID: ${{ parameters.workspaceId }}
