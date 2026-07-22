@@ -11,16 +11,15 @@ The work here is **not** the deployment engine. Two Microsoft tools do that:
 - [`fabric-cicd`](https://github.com/microsoft/fabric-cicd) — publishes Fabric item definitions from a folder
 - [`ms-fabric-cli`](https://microsoft.github.io/fabric-cli/) — the `fab` command line, pinned here to `1.6.1`
 
-This is just the wiring around them: one reusable pipeline template, two thin
-entry points, and a config layout that survives having three environments.
-It's the arrangement I stopped changing because it kept working.
+This is just the wiring around them: one reusable pipeline template, one
+release pipeline that promotes TEST → PROD, and a config layout that survives
+having three environments.
 
 ## Layout
 
 ```text
 cicd/templates/deploy-fabric-steps.yml   the whole engine — project-agnostic
-ci/deploy-test.yml                       thin TEST entry point
-ci/deploy-prod.yml                       thin PROD entry point (approval gate)
+ci/release.yml                           TEST → PROD promotion, two stages
 fabric/solution/config.yml               fabric-cicd config
 fabric/solution/parameter.yml            environment replacements (starts empty)
 docs/FABRIC_CICD_QUICKSTART.md           full setup, file by file
@@ -38,8 +37,9 @@ docs/FABRIC_CICD_QUICKSTART.md           full setup, file by file
 - **`unpublish.skip: true`.** The deployer is not allowed to delete a remote
   item just because it's missing from Git. Turn this on only after you've
   agreed who owns deletion.
-- **PROD is a deployment job with an Environment.** That's where the approval
-  and the deployment history live — not in YAML.
+- **Both stages are deployment jobs with an Environment.** That's where the
+  approval and the deployment history live — not in YAML. Only PROD carries a
+  check; TEST's environment exists for history and a consistent structure.
 
 ## Three things that cost me time
 
@@ -60,7 +60,10 @@ docs/FABRIC_CICD_QUICKSTART.md           full setup, file by file
 3. Create `vg-fabric-<project>` with `FABRIC_TEST_WORKSPACE_ID` and `FABRIC_PROD_WORKSPACE_ID`.
 4. Point a workload-identity-federation service connection at it, and give that
    service principal Contributor on TEST and PROD.
-5. Add an approval check on the `fabric-<project>-prod` Environment.
+5. Create both Environments — `fabric-<project>-test` and `fabric-<project>-prod`
+   — and add an approval check on the PROD one only.
+6. Create one pipeline pointing at `ci/release.yml`. That's the whole thing:
+   TEST runs, then PROD waits for approval, both from a single commit.
 
 The [quick start](docs/FABRIC_CICD_QUICKSTART.md) has the whole thing, including
 the Entra identity setup and a troubleshooting list.

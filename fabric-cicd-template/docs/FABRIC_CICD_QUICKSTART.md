@@ -94,20 +94,15 @@ Typical uses:
 
 This file stays per project because those dependencies differ.
 
-### `ci/deploy-test.yml`
+### `ci/release.yml`
 
-Thin TEST entry point. It supplies:
+The release pipeline: one run, one commit, two stages promoting TEST → PROD. It supplies the variable group, the shared service connection name, each stage's workspace ID, and the project `config.yml` path.
 
-- Variable group
-- Shared service connection name
-- TEST workspace ID
-- Project `config.yml` path
+Both stages are deployment jobs targeting an Azure DevOps Environment. Stages run sequentially in the order they are defined, so PROD only becomes eligible once TEST succeeds; `dependsOn` and `condition: succeeded()` are written out anyway because the promotion is the point of the file. PROD's Environment carries the manual approval. TEST's carries no check and exists for deployment history and a consistent structure.
 
-Project-specific actions may follow the shared template — for example, uploading sample data after deployment.
+Project-specific actions follow the shared template inside each stage — for example, uploading sample data after deployment.
 
-### `ci/deploy-prod.yml`
-
-Thin PROD entry point implemented as an Azure DevOps deployment job. The job targets a project-specific Azure DevOps Environment, which holds the manual approval and deployment history.
+Separate TEST and PROD pipelines are still reasonable when different teams own each deployment, PROD runs on its own release calendar, TEST runs many times before a release is chosen, PROD deploys a separately selected tag, emergency PROD deploys must bypass TEST, or the two sit in different security boundaries. None of that applies to a single-owner project.
 
 ### Optional project actions
 
@@ -232,34 +227,34 @@ FABRIC_PROD_WORKSPACE_ID
 
 These are configuration values, not credentials.
 
-### E. Customize the thin pipelines
+### E. Customize the release pipeline
 
-In `ci/deploy-test.yml` and `ci/deploy-prod.yml`, set:
+In `ci/release.yml`, set:
 
 - Variable group name
 - Shared service connection name
 - `configPath`
-- PROD Azure DevOps Environment name
+- TEST and PROD Azure DevOps Environment names
 
 The service connection and environment names must be literal YAML values because Azure DevOps authorizes protected resources before runtime variables are expanded.
 
-### F. Configure PROD approval
+### F. Create the Environments and the PROD approval
 
-Create an Azure DevOps Environment:
+Create both:
 
 ```text
+fabric-<solution>-test
 fabric-<solution>-prod
 ```
 
-Open **Approvals and checks**, add an approval check, and select the approver. Approvals are configured on the Environment, not in YAML.
+On the PROD one, open **Approvals and checks**, add an approval check, and select the approver. Approvals are configured on the Environment, not in YAML — so editing the pipeline file cannot remove the gate. TEST needs no check.
 
 ### G. Run deployments
 
-1. Run the TEST pipeline.
-2. Validate the Fabric items and solution behavior in TEST.
-3. Run the PROD pipeline.
-4. Approve the Environment check.
-5. Validate the solution in PROD.
+1. Run the release pipeline.
+2. Validate the Fabric items and solution behaviour in TEST while PROD waits.
+3. Approve the PROD Environment check.
+4. Validate the solution in PROD.
 
 ## 5. Extending the pattern
 

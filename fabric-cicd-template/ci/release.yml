@@ -1,0 +1,76 @@
+# One release pipeline, two stages: TEST then PROD.
+#
+# Stages run sequentially in the order they appear, so PROD only becomes
+# eligible once TEST succeeds. dependsOn/condition are written out anyway
+# because the promotion is the point of this file and should be readable.
+#
+# Both stages are deployment jobs targeting an Azure DevOps Environment.
+# PROD's environment carries the manual approval; TEST's carries no check
+# and exists for deployment history and a consistent structure.
+
+trigger: none
+pr: none
+
+variables:
+  - group: vg-fabric-<project>
+
+stages:
+  # ---------------------------------------------------------------- TEST
+  - stage: Deploy_TEST
+    displayName: Deploy to TEST
+
+    jobs:
+      - deployment: Deploy_Fabric_TEST
+        displayName: Deploy Fabric solution to TEST
+        environment: fabric-<project>-test
+
+        pool:
+          vmImage: ubuntu-latest
+
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: /cicd/templates/deploy-fabric-steps.yml
+                  parameters:
+                    displayName: Deploy Fabric items to TEST
+                    serviceConnection: sc-fabric-cicd
+                    targetEnvironment: test
+                    workspaceId: $(FABRIC_TEST_WORKSPACE_ID)
+                    configPath: fabric/solution/config.yml
+
+                # Project-specific work goes here, after the shared template —
+                # data seeding, shortcut creation, smoke tests. Keep it out of
+                # the template so the deployment engine stays generic.
+
+  # ---------------------------------------------------------------- PROD
+  - stage: Deploy_PROD
+    displayName: Deploy to PROD
+    dependsOn:
+      - Deploy_TEST
+    condition: succeeded()
+
+    jobs:
+      - deployment: Deploy_Fabric_PROD
+        displayName: Deploy Fabric solution to PROD
+
+        # The approval lives on this Environment, configured in the Azure
+        # DevOps UI — not in this file. Editing the YAML cannot remove it.
+        environment: fabric-<project>-prod
+
+        pool:
+          vmImage: ubuntu-latest
+
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - template: /cicd/templates/deploy-fabric-steps.yml
+                  parameters:
+                    displayName: Deploy Fabric items to PROD
+                    serviceConnection: sc-fabric-cicd
+                    targetEnvironment: prod
+                    workspaceId: $(FABRIC_PROD_WORKSPACE_ID)
+                    configPath: fabric/solution/config.yml
+
+                # Project-specific PROD actions go here.
