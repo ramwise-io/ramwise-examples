@@ -21,6 +21,7 @@ library wherever possible, so most run with no dependencies at all.
 | [`fabric-cicd-template`](fabric-cicd-template/) | Azure DevOps wiring for Microsoft Fabric deploys: one project-agnostic template, workspace GUIDs injected at runtime, item folders as the inventory (YAML/config, not runnable Python) | [Deploying Fabric Without a Debugger](https://ramwise.dev/blog/deploying-fabric-without-a-debugger/) |
 | [`parquet-gpu-break-even`](parquet-gpu-break-even/) | A correctness-checked PyArrow/cuDF teaching benchmark and notebook that reconstructs the published row-group results | [I Put Parquet on the GPU. Projection Mattered More.](https://ramwise.dev/blog/gpu-parquet-break-even/) |
 | [`gpu-data-engineering-boundary`](gpu-data-engineering-boundary/) | An output-complete notebook locating CPU/GPU crossover boundaries across queries, widths, codecs, and a larger-than-VRAM dataset | [The GPU Boundary Was a Query Plan, Not a Row Count](https://ramwise.dev/blog/gpu-data-engineering-boundary/) |
+| [`cuvs-vector-search-break-even`](cuvs-vector-search-break-even/) | An output-complete cuVS notebook comparing exact search, IVF variants, and CAGRA while calculating how many queries repay ANN index construction | [The ANN Index Still Had to Pay Rent](https://ramwise.dev/blog/gpu-vector-search-break-even/) |
 
 ## Running
 

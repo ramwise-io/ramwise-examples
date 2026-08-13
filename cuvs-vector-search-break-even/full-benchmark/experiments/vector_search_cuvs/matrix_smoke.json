@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "name": "cuvs-break-even-smoke-v1",
+  "datasets": [
+    {"name": "smoke-100k-d128", "rows": 100000, "dimensions": 128}
+  ],
+  "algorithms": ["brute_force", "ivf_flat", "ivf_pq_compact", "ivf_pq_balanced", "cagra"],
+  "generation": {
+    "queries": 1024,
+    "clusters": 4096,
+    "noise": 0.12,
+    "seed": 20260813,
+    "chunk_rows": 100000
+  },
+  "benchmark": {
+    "batch_sizes": [1, 32, 256, 1024],
+    "k": 10,
+    "recall_targets": [0.80, 0.90, 0.95, 0.99],
+    "recall_confirmation_margin": 0.02,
+    "tuning_warmups": 1,
+    "tuning_trials": 2,
+    "confirmation_warmups": 1,
+    "confirmation_trials": 2,
+    "replications": 1,
+    "seed": 3107,
+    "query_rates_per_second": [1, 10, 100, 1000]
+  }
+}

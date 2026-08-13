@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "cuvs-break-even-full-v1",
+  "datasets": [
+    {"name": "scale-100k-d128", "rows": 100000, "dimensions": 128},
+    {"name": "scale-1m-d128", "rows": 1000000, "dimensions": 128},
+    {"name": "scale-5m-d128", "rows": 5000000, "dimensions": 128},
+    {"name": "dimension-1m-d384", "rows": 1000000, "dimensions": 384},
+    {"name": "dimension-1m-d768", "rows": 1000000, "dimensions": 768}
+  ],
+  "algorithms": ["brute_force", "ivf_flat", "ivf_pq_compact", "ivf_pq_balanced", "cagra"],
+  "generation": {
+    "queries": 1024,
+    "clusters": 4096,
+    "noise": 0.12,
+    "seed": 20260813,
+    "chunk_rows": 100000
+  },
+  "benchmark": {
+    "batch_sizes": [1, 32, 256, 1024],
+    "k": 10,
+    "recall_targets": [0.80, 0.90, 0.95, 0.99],
+    "recall_confirmation_margin": 0.02,
+    "tuning_warmups": 1,
+    "tuning_trials": 3,
+    "confirmation_warmups": 2,
+    "confirmation_trials": 5,
+    "replications": 3,
+    "seed": 3107,
+    "query_rates_per_second": [1, 10, 100, 1000]
+  }
+}
