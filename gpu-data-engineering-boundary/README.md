@@ -34,6 +34,7 @@ source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python build_notebook.py
 jupyter execute gpu_data_engineering_boundary.ipynb --inplace
+python generate_article_charts.py
 ```
 
 The benchmark itself was run in a pinned Linux GPU container. Re-executing this
