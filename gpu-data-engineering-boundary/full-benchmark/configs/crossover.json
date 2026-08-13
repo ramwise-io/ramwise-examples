@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "name": "analytical-pipeline-crossover-v1",
+  "profiles": ["wide"],
+  "codecs": ["zstd"],
+  "rows": [100000, 1000000, 5000000, 10000000, 20000000, 50000000],
+  "generation": {
+    "row_group_rows": 262144,
+    "rows_per_file": 2500000,
+    "seed": 73
+  },
+  "benchmark": {
+    "engines": ["duckdb", "polars-cpu", "polars-gpu", "cudf"],
+    "workloads": [
+      "scan_groupby",
+      "join_groupby",
+      "string_features",
+      "sort_topk",
+      "feature_width_2",
+      "feature_width_6",
+      "feature_width_12"
+    ],
+    "warmups": 1,
+    "trials": 3,
+    "threads": 8,
+    "telemetry_interval_ms": 20,
+    "seed": 1991
+  }
+}
+

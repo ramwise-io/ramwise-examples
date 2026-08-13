@@ -20,7 +20,7 @@ library wherever possible, so most run with no dependencies at all.
 | [`preflight-check`](preflight-check/) | Fingerprint every file in a bulk-load set against a `name,type` baseline; name the golden/broken partition before the load runs — reports structure, never guesses a rename (needs `duckdb`) | [The Files That Break Your Bulk Load](https://ramwise.dev/blog/the-files-that-break-your-bulk-load/) |
 | [`fabric-cicd-template`](fabric-cicd-template/) | Azure DevOps wiring for Microsoft Fabric deploys: one project-agnostic template, workspace GUIDs injected at runtime, item folders as the inventory (YAML/config, not runnable Python) | [Deploying Fabric Without a Debugger](https://ramwise.dev/blog/deploying-fabric-without-a-debugger/) |
 | [`parquet-gpu-break-even`](parquet-gpu-break-even/) | A correctness-checked PyArrow/cuDF teaching benchmark and notebook that reconstructs the published row-group results | [I Put Parquet on the GPU. Projection Mattered More.](https://ramwise.dev/blog/gpu-parquet-break-even/) |
-| [`gpu-data-engineering-boundary`](gpu-data-engineering-boundary/) | An output-complete notebook locating CPU/GPU crossover boundaries across queries, widths, codecs, and a larger-than-VRAM dataset | Study notebook; post forthcoming |
+| [`gpu-data-engineering-boundary`](gpu-data-engineering-boundary/) | An output-complete notebook locating CPU/GPU crossover boundaries across queries, widths, codecs, and a larger-than-VRAM dataset | [The GPU Boundary Was a Query Plan, Not a Row Count](https://ramwise.dev/blog/gpu-data-engineering-boundary/) |
 
 ## Running
 

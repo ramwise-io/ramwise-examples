@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "name": "analytical-pipeline-codec-v1",
+  "profiles": ["wide"],
+  "codecs": ["snappy", "zstd"],
+  "rows": [20000000],
+  "generation": {
+    "row_group_rows": 262144,
+    "rows_per_file": 2500000,
+    "seed": 73
+  },
+  "benchmark": {
+    "engines": ["duckdb", "polars-cpu", "polars-gpu", "cudf"],
+    "workloads": ["scan_groupby", "string_features", "feature_width_12"],
+    "warmups": 1,
+    "trials": 3,
+    "threads": 8,
+    "telemetry_interval_ms": 20,
+    "seed": 2991
+  }
+}
+

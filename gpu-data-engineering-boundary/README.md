@@ -1,5 +1,7 @@
 # GPU Data Engineering Boundary
 
+Companion to [The GPU Boundary Was a Query Plan, Not a Row Count](https://ramwise.dev/blog/gpu-data-engineering-boundary/).
+
 This folder is the public, output-complete companion to a controlled benchmark
 of four analytical execution paths:
 
@@ -19,6 +21,10 @@ contains derived condition medians only. Raw per-trial host telemetry and
 private infrastructure metadata are intentionally excluded.
 [`results/failed_controls.csv`](results/failed_controls.csv) preserves the
 single-shot native-cuDF out-of-memory result without publishing private logs.
+
+[`full-benchmark/`](full-benchmark/) contains the sanitized runnable harness,
+three study configs, methodology, tests, digest-pinned container definition,
+and exact Conda explicit specification.
 
 ## Rebuild the notebook output
 
