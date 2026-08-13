@@ -11,11 +11,14 @@ publishing the private lab repository or infrastructure details.
 - CUDA 13.1 and RAPIDS 26.08
 - Intel Core Ultra 9 285HX
 - eight performance cores exposed to the benchmark process
-- Ubuntu 26.04, Python 3.12
+- Ubuntu 26.04 host; digest-pinned Ubuntu 24.04 CUDA benchmark container
+- Python 3.12.13; exact resolved packages are in `conda-linux-64.lock`
 - local NVMe data volume
 
-The public dependency definition is in `environment.yml`. Results apply
-to this versioned stack; library and driver changes can change absolute timing.
+`environment.yml` records the readable dependency intent, while
+`conda-linux-64.lock` records the exact resolved packages installed by the
+benchmark image. Results apply to this versioned stack; library and driver
+changes can change absolute timing.
 
 ## Dataset
 
@@ -60,10 +63,11 @@ The row-group sweep completed another 24 cases and 720 blocks. Both had zero
 correctness failures and zero telemetry sampler errors. Background activity on
 the selected cores stayed below 0.36 core in the final studies.
 
-The derived medians used by the post are in `results/published_results.csv`. Raw JSON
-and per-sample host telemetry are retained privately because they include
-infrastructure metadata and are not necessary to reproduce the article's
-tables.
+The complete five-engine exploratory medians are in
+`results/exploratory_results.csv`. The isolated-confirmation and row-group
+medians used in the article's final tables are in
+`results/published_results.csv`. Raw JSON and per-sample host telemetry are
+retained privately because they include infrastructure metadata.
 
 ## Limits
 

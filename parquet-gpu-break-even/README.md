@@ -8,7 +8,7 @@ The example separates two things that should not be confused:
   notebook readers can run locally. It uses PyArrow and adds cuDF automatically
   when available.
 - [`full-benchmark/`](full-benchmark/) contains the sanitized complete study
-  harness, exact final configs, pinned environment, methodology, tests, and
+  harness, exact study configs, locked environment, methodology, tests, and
   derived results.
 
 The published 50-million-row study used a stricter internal harness: isolated
@@ -53,10 +53,13 @@ useful experiment in its own right.
 - [`full-benchmark/METHODOLOGY.md`](full-benchmark/METHODOLOGY.md) describes the
   full experimental protocol, hardware/software envelope, integrity counts,
   and limits.
-- [`full-benchmark/environment.yml`](full-benchmark/environment.yml) pins the
-  public Conda environment used by the benchmark image.
+- [`full-benchmark/environment.yml`](full-benchmark/environment.yml) records
+  human-readable dependency intent; [`full-benchmark/conda-linux-64.lock`](full-benchmark/conda-linux-64.lock)
+  records the exact resolved Linux package set installed by the benchmark image.
 - [`full-benchmark/configs/`](full-benchmark/configs/) contains sanitized copies
-  of the two final matrix definitions.
+  of the exploratory and two final matrix definitions.
+- [`full-benchmark/results/exploratory_results.csv`](full-benchmark/results/exploratory_results.csv)
+  contains all five engines for all 18 exploratory conditions.
 - [`full-benchmark/results/published_results.csv`](full-benchmark/results/published_results.csv)
-  contains only the derived condition medians used by the article and
-  notebook—no internal host metadata.
+  contains the isolated-confirmation and row-group medians used in the final
+  article tables. Neither result file contains internal host metadata.

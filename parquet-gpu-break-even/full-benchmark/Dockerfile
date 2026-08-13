@@ -20,10 +20,12 @@ RUN curl -fsSLo /tmp/miniforge.sh \
     && rm /tmp/miniforge.sh
 
 ENV PATH="/opt/conda/bin:${PATH}" PYTHONUNBUFFERED=1
-COPY environment.yml /tmp/environment.yml
-RUN conda env update --name base --file /tmp/environment.yml \
+COPY conda-linux-64.lock /tmp/conda-linux-64.lock
+RUN conda create --prefix /opt/benchmark --file /tmp/conda-linux-64.lock \
     && conda clean --all --yes \
-    && rm /tmp/environment.yml
+    && rm /tmp/conda-linux-64.lock
+
+ENV PATH="/opt/benchmark/bin:${PATH}" CONDA_PREFIX="/opt/benchmark"
 
 WORKDIR /benchmark
 ENTRYPOINT ["/usr/bin/tini", "--"]
