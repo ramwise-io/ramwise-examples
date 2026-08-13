@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "name": "fallback",
+  "rows": [50000000],
+  "topologies": [
+    "native",
+    "udf_post_aggregate",
+    "udf_after_filter_1",
+    "udf_before_filter_1",
+    "udf_before_filter_4",
+    "udf_before_filter_8",
+    "udf_before_filter_12",
+    "udf_two_islands"
+  ],
+  "modes": ["cpu", "gpu"],
+  "replications": 3,
+  "benchmark": {
+    "warmups": 1,
+    "trials": 2,
+    "threads": 16,
+    "shuffle_partitions": 32,
+    "seed": 911,
+    "telemetry_interval_ms": 100
+  }
+}

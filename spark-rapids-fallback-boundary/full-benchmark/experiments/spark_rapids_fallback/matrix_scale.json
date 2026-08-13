@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "scale",
+  "rows": [1000000, 5000000, 10000000, 20000000, 50000000],
+  "topologies": ["native"],
+  "modes": ["cpu", "gpu"],
+  "replications": 3,
+  "benchmark": {
+    "warmups": 1,
+    "trials": 2,
+    "threads": 16,
+    "shuffle_partitions": 32,
+    "seed": 193,
+    "telemetry_interval_ms": 100
+  }
+}

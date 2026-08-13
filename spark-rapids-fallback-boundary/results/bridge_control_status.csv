@@ -1,0 +1,10 @@
+case_id,topology,replication,final_status,attempts,completed_utc,excluded_reason
+r50000000-udf_before_filter_12-gpu-accelerated-rep0,udf_before_filter_12,0,failed,1,,JVM SIGSEGV in libcuda.so.1
+r50000000-udf_before_filter_12-gpu-accelerated-rep1,udf_before_filter_12,1,complete,1,2026-08-13T19:43:45Z,control matrix excluded after fatal instability
+r50000000-udf_before_filter_12-gpu-accelerated-rep2,udf_before_filter_12,2,complete,1,2026-08-13T19:43:01Z,control matrix excluded after fatal instability
+r50000000-udf_before_filter_1-gpu-accelerated-rep0,udf_before_filter_1,0,complete_after_retry,3,2026-08-13T19:49:54Z,first run JVM SIGSEGV in libcuda.so.1; second attempt exposed retry-ID collision; third completed
+r50000000-udf_before_filter_1-gpu-accelerated-rep1,udf_before_filter_1,1,complete,1,2026-08-13T19:43:57Z,control matrix excluded after fatal instability
+r50000000-udf_before_filter_1-gpu-accelerated-rep2,udf_before_filter_1,2,complete,1,2026-08-13T19:44:23Z,control matrix excluded after fatal instability
+r50000000-udf_two_islands-gpu-accelerated-rep0,udf_two_islands,0,complete,1,2026-08-13T19:44:10Z,control matrix excluded after fatal instability
+r50000000-udf_two_islands-gpu-accelerated-rep1,udf_two_islands,1,complete,1,2026-08-13T19:43:27Z,control matrix excluded after fatal instability
+r50000000-udf_two_islands-gpu-accelerated-rep2,udf_two_islands,2,complete,1,2026-08-13T19:43:14Z,control matrix excluded after fatal instability
