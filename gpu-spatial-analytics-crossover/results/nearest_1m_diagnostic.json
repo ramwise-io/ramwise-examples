@@ -1,0 +1,46 @@
+[
+  {
+    "features": 1024,
+    "maximum_absolute_error": 0.0009250421250433551,
+    "mismatches": 11,
+    "multiplier": 0.75,
+    "points": 1000000,
+    "quad_pairs": 238103,
+    "radius": 0.000732421875,
+    "result_rows": 1000000,
+    "vertices": 9
+  },
+  {
+    "features": 1024,
+    "maximum_absolute_error": 0.0009250421250433551,
+    "mismatches": 11,
+    "multiplier": 1.0,
+    "points": 1000000,
+    "quad_pairs": 238103,
+    "radius": 0.0009765625,
+    "result_rows": 1000000,
+    "vertices": 9
+  },
+  {
+    "features": 1024,
+    "maximum_absolute_error": 0.0009250421250433551,
+    "mismatches": 11,
+    "multiplier": 2.0,
+    "points": 1000000,
+    "quad_pairs": 302078,
+    "radius": 0.001953125,
+    "result_rows": 1000000,
+    "vertices": 9
+  },
+  {
+    "features": 1024,
+    "maximum_absolute_error": 0.0009250421250433551,
+    "mismatches": 11,
+    "multiplier": 4.0,
+    "points": 1000000,
+    "quad_pairs": 430028,
+    "radius": 0.00390625,
+    "result_rows": 1000000,
+    "vertices": 9
+  }
+]

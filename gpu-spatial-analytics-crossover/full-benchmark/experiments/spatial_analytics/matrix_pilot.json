@@ -1,0 +1,30 @@
+{
+  "name": "pilot",
+  "random_seed": 20260813,
+  "replications": 1,
+  "defaults": {
+    "points": 10000000,
+    "features": 1024,
+    "vertices": 17,
+    "cpu_workers": 8,
+    "warmups": 1,
+    "trials": 3,
+    "max_depth": 15,
+    "seed": 20260813
+  },
+  "sweeps": [
+    {
+      "name": "indexed_join_pilot",
+      "operation": "indexed_join",
+      "axis": "points",
+      "values": [10000000]
+    },
+    {
+      "name": "nearest_pilot",
+      "operation": "nearest",
+      "axis": "points",
+      "values": [100000],
+      "base": {"vertices": 9, "expansion_radius": 0.000732421875}
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "correct": false,
+    "cpu_matches": 4444679,
+    "depth": 15,
+    "features": 1024,
+    "gpu_matches": 245,
+    "leaves": 255448,
+    "max_size": 128,
+    "points": 10000000,
+    "points_in_leaves": 9905288,
+    "quad_pairs": 63,
+    "vertices": 17
+  },
+  {
+    "correct": true,
+    "cpu_matches": 4444679,
+    "depth": 15,
+    "features": 1024,
+    "gpu_matches": 4444679,
+    "leaves": 65544,
+    "max_size": 256,
+    "points": 10000000,
+    "points_in_leaves": 10000000,
+    "quad_pairs": 54971,
+    "vertices": 17
+  }
+]

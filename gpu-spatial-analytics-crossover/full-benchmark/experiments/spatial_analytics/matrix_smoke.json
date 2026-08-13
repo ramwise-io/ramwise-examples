@@ -1,0 +1,45 @@
+{
+  "name": "smoke",
+  "random_seed": 20260813,
+  "replications": 1,
+  "defaults": {
+    "points": 100000,
+    "features": 64,
+    "vertices": 17,
+    "cpu_workers": 8,
+    "warmups": 1,
+    "trials": 3,
+    "max_depth": 12,
+    "seed": 20260813
+  },
+  "sweeps": [
+    {
+      "name": "window_smoke",
+      "operation": "window",
+      "axis": "points",
+      "values": [100000],
+      "base": {"window": [0.25, 0.75]}
+    },
+    {
+      "name": "direct_pip_smoke",
+      "operation": "direct_pip",
+      "axis": "features",
+      "values": [16],
+      "base": {"vertices": 17}
+    },
+    {
+      "name": "indexed_join_smoke",
+      "operation": "indexed_join",
+      "axis": "features",
+      "values": [64],
+      "base": {"vertices": 17}
+    },
+    {
+      "name": "nearest_smoke",
+      "operation": "nearest",
+      "axis": "features",
+      "values": [64],
+      "base": {"vertices": 9, "expansion_radius": 0.01171875}
+    }
+  ]
+}

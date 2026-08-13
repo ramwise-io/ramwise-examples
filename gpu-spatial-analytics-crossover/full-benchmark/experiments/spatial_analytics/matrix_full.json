@@ -1,0 +1,26 @@
+{
+  "name": "full",
+  "random_seed": 20260813,
+  "replications": 3,
+  "defaults": {
+    "points": 10000000,
+    "features": 1024,
+    "vertices": 17,
+    "cpu_workers": 8,
+    "warmups": 1,
+    "trials": 3,
+    "max_depth": 15,
+    "seed": 20260813
+  },
+  "sweeps": [
+    {"name": "window_scale", "operation": "window", "axis": "points", "values": [100000, 1000000, 10000000, 50000000, 100000000], "base": {"window": [0.25, 0.75]}},
+    {"name": "direct_scale", "operation": "direct_pip", "axis": "points", "values": [100000, 1000000, 10000000], "base": {"features": 16, "vertices": 17}},
+    {"name": "join_scale", "operation": "indexed_join", "axis": "points", "values": [100000, 1000000, 10000000, 50000000, 100000000]},
+    {"name": "join_features", "operation": "indexed_join", "axis": "features", "values": [16, 256, 4096, 16384]},
+    {"name": "join_vertices", "operation": "indexed_join", "axis": "vertices", "values": [4, 17, 65, 257]},
+    {"name": "join_selectivity", "operation": "indexed_join", "axis": "radius_fraction", "values": [0.1, 0.2, 0.38, 0.48]},
+    {"name": "nearest_scale", "operation": "nearest", "axis": "points", "values": [10000, 50000, 100000], "base": {"features": 1024, "vertices": 9, "expansion_radius": 0.000732421875}},
+    {"name": "nearest_features", "operation": "nearest", "axis": "features", "values": [16, 64, 256, 1024], "base": {"points": 100000, "vertices": 9}},
+    {"name": "nearest_vertices", "operation": "nearest", "axis": "vertices", "values": [2, 9, 33, 129], "base": {"points": 100000, "features": 64, "expansion_radius": 0.01171875}}
+  ]
+}
