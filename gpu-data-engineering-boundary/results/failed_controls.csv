@@ -1,0 +1,2 @@
+study,rows,profile,codec,workload,engine,outcome,reason
+out_of_core,200000000,wide,zstd,feature_width_12,cudf,failed,"Single-shot read attempted a 23.3 GB device allocation and exhausted available VRAM despite generic spilling."
