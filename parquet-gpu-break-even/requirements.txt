@@ -1,0 +1,4 @@
+numpy>=2.0
+pyarrow>=20
+matplotlib>=3.9
+pytest>=8
