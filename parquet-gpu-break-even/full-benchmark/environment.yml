@@ -1,0 +1,19 @@
+name: parquet-gpu-study
+channels:
+  - rapidsai
+  - conda-forge
+dependencies:
+  - python=3.12
+  - rapids=26.08
+  - cuda-version=13.1
+  - duckdb
+  - jupyterlab
+  - matplotlib
+  - numpy
+  - pandas
+  - polars
+  - psutil
+  - pyarrow
+  - nvidia-ml-py
+  - pytest
+  - seaborn

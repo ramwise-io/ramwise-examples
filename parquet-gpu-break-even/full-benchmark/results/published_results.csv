@@ -1,0 +1,17 @@
+study,profile,codec,row_group_rows,projection,parquet_mib,cudf_seconds,pyarrow_seconds,cudf_speedup
+isolated-confirmation,mixed,snappy,262144,all,812.92,0.1264,0.3919,3.10
+isolated-confirmation,mixed,snappy,262144,core,812.92,0.0934,0.2195,2.35
+isolated-confirmation,mixed,zstd,262144,all,469.74,0.1282,0.3465,2.70
+isolated-confirmation,mixed,zstd,262144,core,469.74,0.1152,0.2255,1.96
+isolated-confirmation,wide,snappy,262144,all,6866.02,0.5878,0.6989,1.19
+isolated-confirmation,wide,snappy,262144,core,6866.02,0.0933,0.2215,2.38
+isolated-confirmation,wide,zstd,262144,all,6234.88,0.8332,1.4819,1.78
+isolated-confirmation,wide,zstd,262144,core,6234.88,0.1151,0.2279,1.98
+row-group-sweep,wide,zstd,65536,all,6237.00,0.8262,1.6885,2.04
+row-group-sweep,wide,zstd,65536,core,6237.00,0.1577,0.3311,2.10
+row-group-sweep,wide,zstd,262144,all,6234.88,0.8191,1.4761,1.80
+row-group-sweep,wide,zstd,262144,core,6234.88,0.1162,0.2282,1.96
+row-group-sweep,wide,zstd,1048576,all,6234.60,0.8187,1.4846,1.81
+row-group-sweep,wide,zstd,1048576,core,6234.60,0.1198,0.2301,1.92
+row-group-sweep,wide,zstd,2500000,all,6234.40,0.7750,1.4807,1.91
+row-group-sweep,wide,zstd,2500000,core,6234.40,0.1137,0.3478,3.06

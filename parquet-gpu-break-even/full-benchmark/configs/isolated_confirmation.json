@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "name": "targeted-affinity-confirm-v1",
+  "profiles": ["mixed", "wide"],
+  "codecs": ["snappy", "zstd"],
+  "projections": ["all", "core"],
+  "replications": 3,
+  "generation": {
+    "rows": 50000000,
+    "rows_per_file": 2500000,
+    "row_group_rows": 262144,
+    "seed": 47
+  },
+  "benchmark": {
+    "cpu_affinity": "0-7",
+    "engines": ["pyarrow", "pandas", "polars", "duckdb", "cudf"],
+    "warmups": 1,
+    "trials": 5,
+    "threads": 8,
+    "seed": 3000,
+    "telemetry_interval_ms": 20
+  },
+  "preflight": {
+    "min_available_memory_gib": 32,
+    "min_free_disk_gib": 100,
+    "min_gpu_memory_gib": 20
+  },
+  "stop_on_failure": true
+}
