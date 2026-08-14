@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "name": "custom-cuda-full",
+  "benchmark": {
+    "seed": 20260814,
+    "warmups": 2,
+    "trials": 7,
+    "replications": 3
+  },
+  "launch": [1, 10, 100, 1000],
+  "transfer": {
+    "bytes": [4096, 65536, 1048576, 16777216, 268435456, 1073741824],
+    "directions": ["h2d", "d2h"],
+    "memory": ["pageable", "pinned"]
+  },
+  "fusion": [
+    {"rows": 1024, "features": 16, "blocks": [256]},
+    {"rows": 4096, "features": 16, "blocks": [256]},
+    {"rows": 16384, "features": 16, "blocks": [256]},
+    {"rows": 65536, "features": 16, "blocks": [256]},
+    {"rows": 262144, "features": 16, "blocks": [256]},
+    {"rows": 1048576, "features": 16, "blocks": [256]},
+    {"rows": 4194304, "features": 16, "blocks": [256]},
+    {"rows": 16777216, "features": 16, "blocks": [256]},
+    {"rows": 262144, "features": 4, "blocks": [256]},
+    {"rows": 262144, "features": 64, "blocks": [256]},
+    {"rows": 262144, "features": 256, "blocks": [256]},
+    {"rows": 262144, "features": 512, "blocks": [256]},
+    {
+      "rows": 4194304,
+      "features": 16,
+      "blocks": [32, 64, 128, 512, 1024],
+      "variants": ["raw_aos", "raw_soa", "raw_strided"]
+    },
+    {
+      "rows": 262144,
+      "features": 256,
+      "blocks": [32, 64, 128, 512, 1024],
+      "variants": ["raw_aos", "raw_soa", "raw_strided"]
+    }
+  ]
+}
+

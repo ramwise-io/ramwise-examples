@@ -1,0 +1,6 @@
+profile,rows,features,layout,block_size,kernel,profiled_duration_seconds,memory_throughput_gbyte_s,dram_throughput_percent,l1_tex_hit_rate_percent,l2_hit_rate_percent,mem_busy_percent,mem_pipes_busy_percent,compute_sm_throughput_percent,registers_per_thread,waves_per_sm,theoretical_occupancy_percent,achieved_occupancy_percent
+r262144-f256-aos-b256,262144,256,aos,256,score_aos,0.00279,97.43,28.67,86.98,12.01,94.23,21.59,21.59,39,2.44,100.0,84.36
+r262144-f256-soa-b256,262144,256,soa,256,score_soa,0.00088672,306.89,90.32,42.73,0.2,34.08,68.11,68.11,39,2.44,100.0,88.6
+r262144-f256-soa-b32,262144,256,soa,32,score_soa,0.00085907,316.7,93.19,42.62,0.34,35.21,70.33,70.33,39,4.88,50.0,48.32
+r4194304-f16-aos-b256,4194304,16,aos,256,score_aos,0.00158,182.8,53.79,87.92,1.15,93.86,40.73,40.73,39,39.01,100.0,93.58
+r4194304-f16-soa-b256,4194304,16,soa,256,score_soa,0.00089834,318.67,93.77,41.66,1.07,35.33,69.6,69.6,39,39.01,100.0,90.41

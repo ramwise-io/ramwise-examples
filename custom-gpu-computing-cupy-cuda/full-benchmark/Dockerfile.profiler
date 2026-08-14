@@ -1,0 +1,14 @@
+# syntax=docker/dockerfile:1.10
+
+ARG BASE_IMAGE="ramwise/custom-cuda-study:26.08"
+FROM ${BASE_IMAGE}
+
+RUN mkdir -p /var/lib/apt/lists/partial \
+    && apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        nsight-compute-2025.4.1 \
+    && rm -rf /var/lib/apt/lists/*
+
+LABEL org.opencontainers.image.title="Ramwise custom CUDA profiler" \
+      org.opencontainers.image.description="Optional Nsight Compute 2025.4.1 layer for the custom CUDA study"
+
