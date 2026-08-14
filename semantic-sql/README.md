@@ -2,7 +2,7 @@
 
 A runnable sketch of natural-language-to-SQL with a **semantic layer** and a
 **verification boundary** — the two ideas behind
-**[I Taught an LLM to Query Data in English](https://ramwise.dev/blog/i-taught-an-llm-to-query-data-in-english/)**.
+**[A Text-to-SQL Prototype for Patient Data](https://ramwise.dev/blog/i-taught-an-llm-to-query-data-in-english/)**.
 
 Pure standard library (`sqlite3`, `json`, `re`). The data is fully **synthetic**
 (a toy e-commerce store). The LLM step is pluggable and **stubbed offline**, so

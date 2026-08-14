@@ -1,6 +1,6 @@
 # evidence-weight
 
-Runnable example behind **[Weight Isn't Agreement](https://ramwise.dev/blog/weight-isnt-agreement/)**.
+Runnable example behind **[Why Evidence Weight and Agreement Need Separate Scores](https://ramwise.dev/blog/weight-isnt-agreement/)**.
 Pure standard library (`math`), no dependencies.
 
 Most systems hand you one number for a claim, doing two jobs at once: *how much

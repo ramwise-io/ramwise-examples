@@ -1,6 +1,6 @@
 # fastpitch-per-phoneme
 
-Companion notebook for **[Generate Slow, Don't Slow the Generation](https://ramwise.dev/blog/generate-slow-dont-slow-the-generation/)**.
+Companion notebook for **[Why I Generated Slower Speech Instead of Stretching Audio](https://ramwise.dev/blog/generate-slow-dont-slow-the-generation/)**.
 
 Slowing speech to *teach* it means slowing each sound differently — hold the
 vowels, keep the stops crisp. That needs a model that exposes a **per-phoneme
