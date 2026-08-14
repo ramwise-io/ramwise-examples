@@ -2,10 +2,10 @@
 
 Runnable companion code for the field notes at **[ramwise.dev](https://ramwise.dev)**.
 
-Each folder is a small, self-contained, tested example that makes one post's
-core idea concrete. These are **teaching implementations** — freshly written to
-illustrate a concept, not production libraries. They lean on the Python standard
-library wherever possible, so most run with no dependencies at all.
+Each folder is a self-contained companion that makes one post's core idea
+concrete. Most are compact teaching implementations; the GPU studies also
+include output-complete analysis notebooks and sanitized, reproducible
+benchmark harnesses. These are examples, not production libraries.
 
 | Example | The idea | Post |
 |---|---|---|
@@ -19,13 +19,16 @@ library wherever possible, so most run with no dependencies at all.
 | [`fastpitch-per-phoneme`](fastpitch-per-phoneme/) | Slow speech per phoneme (hold vowels, keep stops crisp) with FastPitch's per-token `pace` — a GPU/Colab notebook, not zero-dep | [Generate Slow, Don't Slow the Generation](https://ramwise.dev/blog/generate-slow-dont-slow-the-generation/) |
 | [`preflight-check`](preflight-check/) | Fingerprint every file in a bulk-load set against a `name,type` baseline; name the golden/broken partition before the load runs — reports structure, never guesses a rename (needs `duckdb`) | [The Files That Break Your Bulk Load](https://ramwise.dev/blog/the-files-that-break-your-bulk-load/) |
 | [`fabric-cicd-template`](fabric-cicd-template/) | Azure DevOps wiring for Microsoft Fabric deploys: one project-agnostic template, workspace GUIDs injected at runtime, item folders as the inventory (YAML/config, not runnable Python) | [Deploying Fabric Without a Debugger](https://ramwise.dev/blog/deploying-fabric-without-a-debugger/) |
-| [`parquet-gpu-break-even`](parquet-gpu-break-even/) | A correctness-checked PyArrow/cuDF teaching benchmark and notebook that reconstructs the published row-group results | [I Put Parquet on the GPU. Projection Mattered More.](https://ramwise.dev/blog/gpu-parquet-break-even/) |
+| [`parquet-gpu-break-even`](parquet-gpu-break-even/) | A correctness-checked PyArrow/cuDF teaching benchmark plus the reproducibility bundle behind the published row-group results | [I Put Parquet on the GPU. Projection Mattered More.](https://ramwise.dev/blog/gpu-parquet-break-even/) |
 | [`gpu-data-engineering-boundary`](gpu-data-engineering-boundary/) | An output-complete notebook locating CPU/GPU crossover boundaries across queries, widths, codecs, and a larger-than-VRAM dataset | [The GPU Boundary Was a Query Plan, Not a Row Count](https://ramwise.dev/blog/gpu-data-engineering-boundary/) |
+| [`spark-rapids-fallback-boundary`](spark-rapids-fallback-boundary/) | An output-complete notebook showing how CPU-only islands and host/device transitions change the value of Spark RAPIDS acceleration | [Spark RAPIDS Won Until I Split the Plan in Two](https://ramwise.dev/blog/spark-rapids-fallback-boundary/) |
 | [`cuvs-vector-search-break-even`](cuvs-vector-search-break-even/) | An output-complete cuVS notebook comparing exact search, IVF variants, and CAGRA while calculating how many queries repay ANN index construction | [The ANN Index Still Had to Pay Rent](https://ramwise.dev/blog/gpu-vector-search-break-even/) |
+| [`gpu-spatial-analytics-crossover`](gpu-spatial-analytics-crossover/) | An output-complete notebook separating spatial index construction, candidate generation, exact refinement, and the CPU/GPU crossover | [The Spatial Index Moved the GPU Boundary](https://ramwise.dev/blog/gpu-spatial-analytics-crossover/) |
 
 ## Running
 
-Each folder has a `README`, a runnable module, and tests:
+Each folder has its own `README` with exact instructions. The compact examples
+generally run directly:
 
 ```bash
 cd tiny-search
@@ -33,14 +36,10 @@ python tiny_search.py          # a demo
 python test_tiny_search.py     # tests — every folder's tests also run under pytest
 ```
 
-Run every test suite:
-
-```bash
-python -m pytest    # or: for d in */; do (cd "$d" && python test_*.py); done
-```
-
-The one exception is [`fastpitch-per-phoneme`](fastpitch-per-phoneme/), a
-GPU/Colab teaching notebook rather than a zero-dependency module.
+Notebook and benchmark companions document their own dependency, test, and
+container environment. Run those suites from the companion's documented
+environment; their GPU and data-engine dependencies are intentionally not
+installed at the repository root.
 
 ## License
 

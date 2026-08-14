@@ -24,6 +24,13 @@ docker run --rm --network none --gpus all --cpuset-cpus=0-7 \
   --output-root /data/matrices
 ```
 
+Run the API semantics pilot before starting the full matrix:
+
+```bash
+docker run --rm --gpus all \
+  spatial-crossover:25.04 \
+  python -m experiments.spatial_analytics.api_semantics
+```
+
 Use `matrix_full.json` only after the smoke matrix and API semantics pilot pass.
 See `METHODOLOGY.md` for exact timing and publication rules.
-

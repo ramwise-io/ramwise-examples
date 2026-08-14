@@ -1,15 +1,17 @@
 # GPU Spatial Analytics Crossover
 
-Companion to the Ramwise field note on CPU/GPU spatial analytics boundaries.
+Companion to [The Spatial Index Moved the GPU Boundary](https://ramwise.dev/blog/gpu-spatial-analytics-crossover/),
+the Ramwise field note on CPU/GPU spatial analytics boundaries.
 
 This parent folder contains an output-complete notebook, sanitized derived
-evidence, article charts, and the full reproducible benchmark harness. The
+evidence, and the full reproducible benchmark harness. The
 study separates spatial index construction, bounding-box candidate generation,
 exact geometry refinement, and result materialization across point scale,
 feature count, polygon complexity, and selectivity.
 
-The reader notebook does not need a GPU. It reads committed CSVs derived from
-three fresh-process confirmation replications. The separate
+The reader [`gpu_spatial_analytics_crossover.ipynb`](gpu_spatial_analytics_crossover.ipynb)
+does not need a GPU. It reads committed CSVs derived from three fresh-process
+confirmation replications. The separate
 [`full-benchmark/`](full-benchmark/) directory needs a supported NVIDIA GPU,
 driver, and NVIDIA Container Toolkit.
 
@@ -30,13 +32,14 @@ boundaries. Raw per-trial JSON, host paths, and internal
 orchestration state remain in the private experiment workspace. The results
 README records the exact timing-matrix and derivation revisions.
 
-## Rebuild the notebook
+## Open or rerun the notebook
+
+The committed notebook is already output-complete. Open it directly, or rerun
+the analysis against the committed derived evidence:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python build_notebook.py
 jupyter execute gpu_spatial_analytics_crossover.ipynb --inplace
-python generate_article_charts.py
 ```

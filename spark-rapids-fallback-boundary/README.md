@@ -1,12 +1,14 @@
 # Spark RAPIDS Fallback Boundary
 
-Companion to the Ramwise study of realistic PySpark ETL with and without the
-RAPIDS Accelerator.
+Companion to [Spark RAPIDS Won Until I Split the Plan in Two](https://ramwise.dev/blog/spark-rapids-fallback-boundary/),
+a Ramwise study of realistic PySpark ETL with and without the RAPIDS
+Accelerator.
 
-Open `spark_rapids_fallback_boundary.ipynb` to inspect the scale crossover,
-the physical-plan fallback anatomy, and the point where partial acceleration
-became slower than keeping the complete Spark plan on CPU. The committed
-notebook includes all outputs and requires no GPU to read.
+Open [`spark_rapids_fallback_boundary.ipynb`](spark_rapids_fallback_boundary.ipynb)
+to inspect the scale crossover, the physical-plan fallback anatomy, and the
+point where partial acceleration became slower than keeping the complete Spark
+plan on CPU. The committed notebook includes all outputs and requires no GPU
+to read.
 
 The public evidence retains all 78 process-level condition rows:
 
@@ -24,13 +26,15 @@ paths, and per-sample telemetry remain in the internal experiment workspace.
 configs, an optional accelerated-bridge diagnostic, methodology, tests, and a
 checksum-pinned container definition with an exact Python dependency lock.
 
-## Rebuild the notebook outputs
+## Open or rerun the notebook
+
+The committed notebook is already output-complete. Open it directly, or rerun
+the analysis against the committed derived evidence:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python build_notebook.py
 jupyter execute spark_rapids_fallback_boundary.ipynb --inplace
 ```
 

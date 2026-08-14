@@ -26,15 +26,16 @@ single-shot native-cuDF out-of-memory result without publishing private logs.
 three study configs, methodology, tests, digest-pinned container definition,
 and exact Conda explicit specification.
 
-## Rebuild the notebook output
+## Open or rerun the notebook
+
+The committed notebook is already output-complete. Open it directly, or rerun
+the analysis against the committed derived evidence:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python build_notebook.py
 jupyter execute gpu_data_engineering_boundary.ipynb --inplace
-python generate_article_charts.py
 ```
 
 The benchmark itself was run in a pinned Linux GPU container. Re-executing this
