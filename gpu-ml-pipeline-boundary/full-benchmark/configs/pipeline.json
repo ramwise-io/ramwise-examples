@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "name": "gpu-ml-pipeline-confirmation",
+  "generation": {
+    "seed": 20260813,
+    "test_fraction": 0.2,
+    "clusters": 16,
+    "informative_features": 8,
+    "cluster_scale": 3.0,
+    "chunk_rows": 100000
+  },
+  "benchmark": {
+    "seed": 20260813,
+    "warmups": 1,
+    "trials": 3,
+    "replications": 3,
+    "require_accel_gpu_log": true
+  },
+  "datasets": [
+    {"name": "pipeline-scale-r5k-f64", "rows": 5000, "features": 64},
+    {"name": "pipeline-scale-r20k-f64", "rows": 20000, "features": 64},
+    {"name": "pipeline-scale-r100k-f64", "rows": 100000, "features": 64},
+    {"name": "pipeline-scale-r1m-f64", "rows": 1000000, "features": 64},
+    {"name": "pipeline-width-r100k-f16", "rows": 100000, "features": 16},
+    {"name": "pipeline-width-r100k-f256", "rows": 100000, "features": 256}
+  ]
+}

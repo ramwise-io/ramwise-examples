@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "name": "gpu-ml-confirmation",
+  "generation": {
+    "seed": 20260813,
+    "test_fraction": 0.2,
+    "clusters": 16,
+    "informative_features": 8,
+    "cluster_scale": 3.0,
+    "chunk_rows": 100000
+  },
+  "benchmark": {
+    "seed": 20260813,
+    "warmups": 1,
+    "trials": 3,
+    "replications": 3,
+    "inference_batches": [1, 256, 4096, 65536],
+    "require_accel_gpu_log": true
+  },
+  "datasets": [
+    {
+      "name": "scale-r20k-f64",
+      "rows": 20000,
+      "features": 64,
+      "algorithms": ["pca", "kmeans", "logistic_regression", "random_forest", "xgboost"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "scale-r100k-f64",
+      "rows": 100000,
+      "features": 64,
+      "algorithms": ["pca", "kmeans", "logistic_regression", "random_forest", "xgboost"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "rf-r250k-f64",
+      "rows": 250000,
+      "features": 64,
+      "algorithms": ["random_forest"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "scale-r1m-f64",
+      "rows": 1000000,
+      "features": 64,
+      "algorithms": ["pca", "kmeans", "logistic_regression", "random_forest", "xgboost"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "scale-r5m-f64",
+      "rows": 5000000,
+      "features": 64,
+      "algorithms": ["pca", "kmeans", "logistic_regression", "xgboost"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "width-r100k-f16",
+      "rows": 100000,
+      "features": 16,
+      "algorithms": ["pca", "kmeans", "logistic_regression", "xgboost"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "width-r100k-f256",
+      "rows": 100000,
+      "features": 256,
+      "algorithms": ["pca", "kmeans", "logistic_regression", "xgboost"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "width-r100k-f1024",
+      "rows": 100000,
+      "features": 1024,
+      "algorithms": ["pca", "logistic_regression", "xgboost"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "manifold-r20k-f16",
+      "rows": 20000,
+      "features": 16,
+      "cluster_scale": 6.0,
+      "algorithms": ["umap", "hdbscan"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "manifold-r50k-f16",
+      "rows": 50000,
+      "features": 16,
+      "cluster_scale": 6.0,
+      "algorithms": ["umap", "hdbscan"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    },
+    {
+      "name": "manifold-r100k-f16",
+      "rows": 100000,
+      "features": 16,
+      "cluster_scale": 6.0,
+      "algorithms": ["umap", "hdbscan"],
+      "engines": ["cpu", "accel", "native_gpu"]
+    }
+  ]
+}
