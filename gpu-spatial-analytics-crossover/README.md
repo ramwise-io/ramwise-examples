@@ -1,6 +1,6 @@
 # GPU Spatial Analytics Crossover
 
-Companion to [The Spatial Index Moved the GPU Boundary](https://ramwise.dev/blog/gpu-spatial-analytics-crossover/),
+Companion to [100 Million Points on One GPU](https://ramwise.dev/blog/gpu-spatial-analytics-crossover/),
 the Ramwise field note on CPU/GPU spatial analytics boundaries.
 
 This parent folder contains an output-complete notebook, sanitized derived

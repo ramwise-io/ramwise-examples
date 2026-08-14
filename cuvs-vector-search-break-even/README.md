@@ -1,6 +1,6 @@
 # cuVS Vector Search Break-Even
 
-Companion to [The ANN Index Still Had to Pay Rent](https://ramwise.dev/blog/gpu-vector-search-break-even/),
+Companion to [How Many Queries Pay for a Vector Index?](https://ramwise.dev/blog/gpu-vector-search-break-even/),
 the Ramwise field note on exact and approximate GPU vector search.
 
 This folder contains an output-complete notebook that analyzes exact cuVS

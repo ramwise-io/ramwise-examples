@@ -1,6 +1,6 @@
 # GPU ML Pipeline Boundary
 
-Companion to [The GPU Model Was Fast. Data Placement Decided the Win.](https://ramwise.dev/blog/gpu-ml-pipeline-boundary/).
+Companion to [I Moved an Entire ML Pipeline to the GPU](https://ramwise.dev/blog/gpu-ml-pipeline-boundary/).
 
 The study compares CPU libraries, unchanged supported APIs under `cuml.accel`,
 and native GPU implementations for PCA, KMeans, Logistic Regression, Random

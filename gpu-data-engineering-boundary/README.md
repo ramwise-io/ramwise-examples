@@ -1,6 +1,6 @@
 # GPU Data Engineering Boundary
 
-Companion to [The GPU Boundary Was a Query Plan, Not a Row Count](https://ramwise.dev/blog/gpu-data-engineering-boundary/).
+Companion to [DuckDB, Polars, and cuDF on One Analytical Pipeline](https://ramwise.dev/blog/gpu-data-engineering-boundary/).
 
 This folder is the public, output-complete companion to a controlled benchmark
 of four analytical execution paths:

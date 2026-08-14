@@ -1,6 +1,6 @@
 # Spark RAPIDS Fallback Boundary
 
-Companion to [Spark RAPIDS Won Until I Split the Plan in Two](https://ramwise.dev/blog/spark-rapids-fallback-boundary/),
+Companion to [How Much of a Spark Plan Actually Runs on the GPU?](https://ramwise.dev/blog/spark-rapids-fallback-boundary/),
 a Ramwise study of realistic PySpark ETL with and without the RAPIDS
 Accelerator.
 

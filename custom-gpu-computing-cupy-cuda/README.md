@@ -1,6 +1,6 @@
 # Custom GPU Computing with CuPy and CUDA
 
-Companion to the Ramwise article **The Kernel Was Fast. The Trip Wasn't.**
+Companion to the Ramwise article **[I Wrote the Same GPU Operation Six Ways](https://ramwise.dev/blog/custom-gpu-computing-cupy-cuda/)**.
 
 The study implements one useful numeric scoring operation at four levels:
 NumPy, composed CuPy, partially fused CuPy, and handwritten CUDA. It also keeps
@@ -25,4 +25,3 @@ source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 jupyter execute custom_gpu_computing.ipynb --inplace
 ```
-
