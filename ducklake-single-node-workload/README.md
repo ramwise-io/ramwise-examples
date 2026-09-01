@@ -1,6 +1,6 @@
 # DuckLake Single-Node Workload Lab
 
-Companion to **[I Ran a DuckLake Workspace From 200K to 100M Events](https://ramwise.dev/blog/ducklake-single-node-workload/)**.
+Companion to **[DuckLake on One Machine](https://ramwise.dev/blog/ducklake-single-node-workload/)**.
 
 This is the public evidence companion for a normal data-engineering workflow built from DuckLake, DuckDB, marimo, and Anatini. It is deliberately not a one-query engine microbenchmark.
 
