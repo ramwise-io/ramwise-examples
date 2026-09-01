@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 390" role="img">
+<title>The large Run was a workflow, not one query</title>
+<desc>Seven-step workload flow annotated with median large-profile elapsed time and output rows.</desc>
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:Inter,ui-sans-serif,system-ui,sans-serif;fill:#173a34}.title{font-size:28px;font-weight:700}.sub{font-size:15px;fill:#5f716d}.axis{font-size:13px;fill:#65736f}.value{font-size:14px;font-weight:650}.grid{stroke:#dfe6e2;stroke-width:1}.range{stroke:#173a34;stroke-width:2}.bar{rx:5}</style>
+<text x="45.0" y="44.0" class="title">The large Run was a workflow, not one query</text>
+<text x="45.0" y="74.0" class="sub">Median of five Runs; 50M orders, 2.5M changes, 100M events.</text>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8aa09a"/></marker></defs>
+<rect x="45" y="130" width="160" height="130" fill="#eef4f1" stroke="#b7cac3" rx="12"/>
+<text x="125.0" y="164.0" class="value" text-anchor="middle">generate</text>
+<text x="125.0" y="184.0" class="value" text-anchor="middle">sources</text>
+<text x="125.0" y="218.0" class="title" font-size="22px" text-anchor="middle">137.68s</text>
+<text x="125.0" y="242.0" class="axis" text-anchor="middle">158,000,000 rows out</text>
+<path d="M 212 195.0 L 231 195.0" stroke="#8aa09a" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="239" y="130" width="160" height="130" fill="#eef4f1" stroke="#b7cac3" rx="12"/>
+<text x="319.0" y="164.0" class="value" text-anchor="middle">ingest</text>
+<text x="319.0" y="184.0" class="value" text-anchor="middle">batch</text>
+<text x="319.0" y="218.0" class="title" font-size="22px" text-anchor="middle">6.64s</text>
+<text x="319.0" y="242.0" class="axis" text-anchor="middle">55,500,000 rows out</text>
+<path d="M 406 195.0 L 425 195.0" stroke="#8aa09a" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="433" y="130" width="160" height="130" fill="#eef4f1" stroke="#b7cac3" rx="12"/>
+<text x="513.0" y="164.0" class="value" text-anchor="middle">prepare</text>
+<text x="513.0" y="184.0" class="value" text-anchor="middle">and model</text>
+<text x="513.0" y="218.0" class="title" font-size="22px" text-anchor="middle">21.78s</text>
+<text x="513.0" y="242.0" class="axis" text-anchor="middle">49,999,000 rows out</text>
+<path d="M 600 195.0 L 619 195.0" stroke="#8aa09a" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="627" y="130" width="160" height="130" fill="#eef4f1" stroke="#b7cac3" rx="12"/>
+<text x="707.0" y="164.0" class="value" text-anchor="middle">apply</text>
+<text x="707.0" y="184.0" class="value" text-anchor="middle">incremental</text>
+<text x="707.0" y="218.0" class="title" font-size="22px" text-anchor="middle">17.65s</text>
+<text x="707.0" y="242.0" class="axis" text-anchor="middle">51,249,050 rows out</text>
+<path d="M 794 195.0 L 813 195.0" stroke="#8aa09a" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="821" y="130" width="160" height="130" fill="#eef4f1" stroke="#b7cac3" rx="12"/>
+<text x="901.0" y="164.0" class="value" text-anchor="middle">process</text>
+<text x="901.0" y="184.0" class="value" text-anchor="middle">events</text>
+<text x="901.0" y="218.0" class="title" font-size="22px" text-anchor="middle">42.25s</text>
+<text x="901.0" y="242.0" class="axis" text-anchor="middle">99,990,000 rows out</text>
+<path d="M 988 195.0 L 1007 195.0" stroke="#8aa09a" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1015" y="130" width="160" height="130" fill="#eef4f1" stroke="#b7cac3" rx="12"/>
+<text x="1095.0" y="164.0" class="value" text-anchor="middle">validate</text>
+<text x="1095.0" y="184.0" class="value" text-anchor="middle">quality</text>
+<text x="1095.0" y="218.0" class="title" font-size="22px" text-anchor="middle">5.60s</text>
+<text x="1095.0" y="242.0" class="axis" text-anchor="middle">6 rows out</text>
+<path d="M 1182 195.0 L 1201 195.0" stroke="#8aa09a" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1209" y="130" width="160" height="130" fill="#eef4f1" stroke="#b7cac3" rx="12"/>
+<text x="1289.0" y="164.0" class="value" text-anchor="middle">query</text>
+<text x="1289.0" y="184.0" class="value" text-anchor="middle">history</text>
+<text x="1289.0" y="218.0" class="title" font-size="22px" text-anchor="middle">0.60s</text>
+<text x="1289.0" y="242.0" class="axis" text-anchor="middle">2 rows out</text>
+<text x="45.0" y="330.0" class="sub">Every Run also retained source, parameters, logs, checks, results, and rendered notebooks.</text>
+</svg>

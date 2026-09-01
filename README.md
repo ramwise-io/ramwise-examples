@@ -26,6 +26,7 @@ benchmark harnesses. These are examples, not production libraries.
 | [`gpu-spatial-analytics-crossover`](gpu-spatial-analytics-crossover/) | An output-complete notebook separating spatial index construction, candidate generation, exact refinement, and the CPU/GPU crossover | [100 Million Points on One GPU](https://ramwise.dev/blog/gpu-spatial-analytics-crossover/) |
 | [`gpu-ml-pipeline-boundary`](gpu-ml-pipeline-boundary/) | An output-complete notebook comparing CPU, accelerated, native-GPU, and mixed-placement classical ML pipelines | [I Moved an Entire ML Pipeline to the GPU](https://ramwise.dev/blog/gpu-ml-pipeline-boundary/) |
 | [`custom-gpu-computing-cupy-cuda`](custom-gpu-computing-cupy-cuda/) | An output-complete notebook comparing NumPy, composed CuPy, fused CuPy, and handwritten CUDA with launch, transfer, and layout controls | [I Wrote the Same GPU Operation Six Ways](https://ramwise.dev/blog/custom-gpu-computing-cupy-cuda/) |
+| [`ducklake-single-node-workload`](ducklake-single-node-workload/) | A complete DuckLake/DuckDB/marimo data-engineering workflow, four locked scale profiles, derived evidence, and static notebook exports | [I Ran a DuckLake Workspace From 200K to 100M Events](https://ramwise.dev/blog/ducklake-single-node-workload/) |
 
 ## Running
 

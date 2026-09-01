@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 650" role="img">
+<title>One node, four workload scales</title>
+<desc>Median timed workload and complete retained Anatini Run durations across quick, small, medium, and large profiles.</desc>
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:Inter,ui-sans-serif,system-ui,sans-serif;fill:#173a34}.title{font-size:28px;font-weight:700}.sub{font-size:15px;fill:#5f716d}.axis{font-size:13px;fill:#65736f}.value{font-size:14px;font-weight:650}.grid{stroke:#dfe6e2;stroke-width:1}.range{stroke:#173a34;stroke-width:2}.bar{rx:5}</style>
+<text x="105.0" y="48.0" class="title">One node, four workload scales</text>
+<text x="105.0" y="78.0" class="sub">Median of five measured Runs; whiskers show min–max. Logarithmic seconds axis.</text>
+<line x1="105" y1="545.0" x2="1105" y2="545.0" class="grid"/>
+<text x="93.0" y="550.0" class="axis" text-anchor="end">1s</text>
+<line x1="105" y1="465.8" x2="1105" y2="465.8" class="grid"/>
+<text x="93.0" y="470.8" class="axis" text-anchor="end">3s</text>
+<line x1="105" y1="379.0" x2="1105" y2="379.0" class="grid"/>
+<text x="93.0" y="384.0" class="axis" text-anchor="end">10s</text>
+<line x1="105" y1="299.7" x2="1105" y2="299.7" class="grid"/>
+<text x="93.0" y="304.7" class="axis" text-anchor="end">30s</text>
+<line x1="105" y1="212.9" x2="1105" y2="212.9" class="grid"/>
+<text x="93.0" y="217.9" class="axis" text-anchor="end">100s</text>
+<line x1="105" y1="133.7" x2="1105" y2="133.7" class="grid"/>
+<text x="93.0" y="138.7" class="axis" text-anchor="end">300s</text>
+<rect x="178.0" y="426.9" width="44" height="118.1" fill="#2f7d6a" class="bar"/>
+<text x="200.0" y="417.9" class="value" text-anchor="middle">5.1s</text>
+<rect x="238.0" y="249.8" width="44" height="295.2" fill="#173a34" class="bar"/>
+<text x="260.0" y="240.8" class="value" text-anchor="middle">60.0s</text>
+<line x1="260.0" y1="247.8" x2="260.0" y2="251.7" class="range"/>
+<line x1="252.0" y1="247.8" x2="268.0" y2="247.8" class="range"/>
+<line x1="252.0" y1="251.7" x2="268.0" y2="251.7" class="range"/>
+<text x="230.0" y="588.0" class="value" text-anchor="middle">Quick</text>
+<text x="230.0" y="611.0" class="axis" text-anchor="middle">100k orders · 200k events</text>
+<rect x="428.0" y="373.8" width="44" height="171.2" fill="#4f8fbf" class="bar"/>
+<text x="450.0" y="364.8" class="value" text-anchor="middle">10.7s</text>
+<rect x="488.0" y="244.3" width="44" height="300.7" fill="#173a34" class="bar"/>
+<text x="510.0" y="235.3" class="value" text-anchor="middle">64.7s</text>
+<line x1="510.0" y1="241.0" x2="510.0" y2="253.3" class="range"/>
+<line x1="502.0" y1="241.0" x2="518.0" y2="241.0" class="range"/>
+<line x1="502.0" y1="253.3" x2="518.0" y2="253.3" class="range"/>
+<text x="480.0" y="588.0" class="value" text-anchor="middle">Small</text>
+<text x="480.0" y="611.0" class="axis" text-anchor="middle">1M orders · 2M events</text>
+<rect x="678.0" y="250.2" width="44" height="294.8" fill="#8b6bb1" class="bar"/>
+<text x="700.0" y="241.2" class="value" text-anchor="middle">59.7s</text>
+<rect x="738.0" y="201.4" width="44" height="343.6" fill="#173a34" class="bar"/>
+<text x="760.0" y="192.4" class="value" text-anchor="middle">117.4s</text>
+<line x1="760.0" y1="200.0" x2="760.0" y2="201.5" class="range"/>
+<line x1="752.0" y1="200.0" x2="768.0" y2="200.0" class="range"/>
+<line x1="752.0" y1="201.5" x2="768.0" y2="201.5" class="range"/>
+<text x="730.0" y="588.0" class="value" text-anchor="middle">Medium</text>
+<text x="730.0" y="611.0" class="axis" text-anchor="middle">10M orders · 20M events</text>
+<rect x="928.0" y="151.0" width="44" height="394.0" fill="#d06b45" class="bar"/>
+<text x="950.0" y="142.0" class="value" text-anchor="middle">235.9s</text>
+<rect x="988.0" y="136.5" width="44" height="408.5" fill="#173a34" class="bar"/>
+<text x="1010.0" y="127.5" class="value" text-anchor="middle">288.4s</text>
+<line x1="1010.0" y1="133.1" x2="1010.0" y2="146.1" class="range"/>
+<line x1="1002.0" y1="133.1" x2="1018.0" y2="133.1" class="range"/>
+<line x1="1002.0" y1="146.1" x2="1018.0" y2="146.1" class="range"/>
+<text x="980.0" y="588.0" class="value" text-anchor="middle">Large</text>
+<text x="980.0" y="611.0" class="axis" text-anchor="middle">50M orders · 100M events</text>
+<rect x="770" y="42" width="7" height="18" fill="#2f7d6a"/>
+<rect x="777" y="42" width="7" height="18" fill="#4f8fbf"/>
+<rect x="784" y="42" width="7" height="18" fill="#8b6bb1"/>
+<rect x="791" y="42" width="7" height="18" fill="#d06b45"/>
+<text x="807.0" y="57.0" class="axis">timed steps (profile color)</text>
+<rect x="990" y="42" width="18" height="18" fill="#173a34" rx="4"/>
+<text x="1017.0" y="57.0" class="axis">full Run</text>
+</svg>

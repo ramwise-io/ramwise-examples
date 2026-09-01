@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 720" role="img">
+<title>Where the time went</title>
+<desc>Line chart of median step duration by workload and scale profile.</desc>
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:Inter,ui-sans-serif,system-ui,sans-serif;fill:#173a34}.title{font-size:28px;font-weight:700}.sub{font-size:15px;fill:#5f716d}.axis{font-size:13px;fill:#65736f}.value{font-size:14px;font-weight:650}.grid{stroke:#dfe6e2;stroke-width:1}.range{stroke:#173a34;stroke-width:2}.bar{rx:5}</style>
+<text x="110.0" y="48.0" class="title">Where the time went</text>
+<text x="110.0" y="78.0" class="sub">Median internal step time across five Runs per profile. Logarithmic milliseconds axis.</text>
+<line x1="110" y1="484.9" x2="1200" y2="484.9" class="grid"/>
+<text x="98.0" y="489.9" class="axis" text-anchor="end">10ms</text>
+<line x1="110" y1="399.8" x2="1200" y2="399.8" class="grid"/>
+<text x="98.0" y="404.8" class="axis" text-anchor="end">100ms</text>
+<line x1="110" y1="314.7" x2="1200" y2="314.7" class="grid"/>
+<text x="98.0" y="319.7" class="axis" text-anchor="end">1s</text>
+<line x1="110" y1="229.6" x2="1200" y2="229.6" class="grid"/>
+<text x="98.0" y="234.6" class="axis" text-anchor="end">10s</text>
+<line x1="110" y1="144.5" x2="1200" y2="144.5" class="grid"/>
+<text x="98.0" y="149.5" class="axis" text-anchor="end">100s</text>
+<polyline points="110.0,316.0 291.7,346.9 473.3,311.6 655.0,316.8 836.7,320.2 1018.3,330.4 1200.0,385.8" fill="none" stroke="#2f7d6a" stroke-width="3"/>
+<circle cx="110.0" cy="316.0" r="5" fill="#2f7d6a"/>
+<circle cx="291.7" cy="346.9" r="5" fill="#2f7d6a"/>
+<circle cx="473.3" cy="311.6" r="5" fill="#2f7d6a"/>
+<circle cx="655.0" cy="316.8" r="5" fill="#2f7d6a"/>
+<circle cx="836.7" cy="320.2" r="5" fill="#2f7d6a"/>
+<circle cx="1018.3" cy="330.4" r="5" fill="#2f7d6a"/>
+<circle cx="1200.0" cy="385.8" r="5" fill="#2f7d6a"/>
+<polyline points="110.0,266.6 291.7,328.6 473.3,295.0 655.0,299.5 836.7,294.6 1018.3,318.0 1200.0,373.2" fill="none" stroke="#4f8fbf" stroke-width="3"/>
+<circle cx="110.0" cy="266.6" r="5" fill="#4f8fbf"/>
+<circle cx="291.7" cy="328.6" r="5" fill="#4f8fbf"/>
+<circle cx="473.3" cy="295.0" r="5" fill="#4f8fbf"/>
+<circle cx="655.0" cy="299.5" r="5" fill="#4f8fbf"/>
+<circle cx="836.7" cy="294.6" r="5" fill="#4f8fbf"/>
+<circle cx="1018.3" cy="318.0" r="5" fill="#4f8fbf"/>
+<circle cx="1200.0" cy="373.2" r="5" fill="#4f8fbf"/>
+<polyline points="110.0,183.6 291.7,284.2 473.3,248.6 655.0,257.7 836.7,229.8 1018.3,289.5 1200.0,357.5" fill="none" stroke="#8b6bb1" stroke-width="3"/>
+<circle cx="110.0" cy="183.6" r="5" fill="#8b6bb1"/>
+<circle cx="291.7" cy="284.2" r="5" fill="#8b6bb1"/>
+<circle cx="473.3" cy="248.6" r="5" fill="#8b6bb1"/>
+<circle cx="655.0" cy="257.7" r="5" fill="#8b6bb1"/>
+<circle cx="836.7" cy="229.8" r="5" fill="#8b6bb1"/>
+<circle cx="1018.3" cy="289.5" r="5" fill="#8b6bb1"/>
+<circle cx="1200.0" cy="357.5" r="5" fill="#8b6bb1"/>
+<polyline points="110.0,132.7 291.7,244.7 473.3,200.8 655.0,208.6 836.7,176.3 1018.3,251.0 1200.0,333.6" fill="none" stroke="#d06b45" stroke-width="3"/>
+<circle cx="110.0" cy="132.7" r="5" fill="#d06b45"/>
+<circle cx="291.7" cy="244.7" r="5" fill="#d06b45"/>
+<circle cx="473.3" cy="200.8" r="5" fill="#d06b45"/>
+<circle cx="655.0" cy="208.6" r="5" fill="#d06b45"/>
+<circle cx="836.7" cy="176.3" r="5" fill="#d06b45"/>
+<circle cx="1018.3" cy="251.0" r="5" fill="#d06b45"/>
+<circle cx="1200.0" cy="333.6" r="5" fill="#d06b45"/>
+<g transform="translate(110.0,598) rotate(35)"><text x="0.0" y="0.0" class="axis" text-anchor="middle">generate sources</text></g>
+<g transform="translate(291.7,598) rotate(35)"><text x="0.0" y="0.0" class="axis" text-anchor="middle">ingest batch</text></g>
+<g transform="translate(473.3,598) rotate(35)"><text x="0.0" y="0.0" class="axis" text-anchor="middle">prepare and model</text></g>
+<g transform="translate(655.0,598) rotate(35)"><text x="0.0" y="0.0" class="axis" text-anchor="middle">apply incremental</text></g>
+<g transform="translate(836.7,598) rotate(35)"><text x="0.0" y="0.0" class="axis" text-anchor="middle">process events</text></g>
+<g transform="translate(1018.3,598) rotate(35)"><text x="0.0" y="0.0" class="axis" text-anchor="middle">validate quality</text></g>
+<g transform="translate(1200.0,598) rotate(35)"><text x="0.0" y="0.0" class="axis" text-anchor="middle">query history</text></g>
+<line x1="720" y1="53" x2="744" y2="53" stroke="#2f7d6a" stroke-width="4"/>
+<text x="751.0" y="58.0" class="axis">quick</text>
+<line x1="845" y1="53" x2="869" y2="53" stroke="#4f8fbf" stroke-width="4"/>
+<text x="876.0" y="58.0" class="axis">small</text>
+<line x1="970" y1="53" x2="994" y2="53" stroke="#8b6bb1" stroke-width="4"/>
+<text x="1001.0" y="58.0" class="axis">medium</text>
+<line x1="1095" y1="53" x2="1119" y2="53" stroke="#d06b45" stroke-width="4"/>
+<text x="1126.0" y="58.0" class="axis">large</text>
+</svg>

@@ -1,0 +1,14 @@
+# Anatini data and generated state (source control is optional)
+/files/
+/lake/
+/runs/
+/.anatini/
+*.sqlite-wal
+*.sqlite-shm
+*.log
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 620" role="img">
+<title>The machine was not the boundary</title>
+<desc>Bar charts of peak process memory and current managed storage across workload profiles.</desc>
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:Inter,ui-sans-serif,system-ui,sans-serif;fill:#173a34}.title{font-size:28px;font-weight:700}.sub{font-size:15px;fill:#5f716d}.axis{font-size:13px;fill:#65736f}.value{font-size:14px;font-weight:650}.grid{stroke:#dfe6e2;stroke-width:1}.range{stroke:#173a34;stroke-width:2}.bar{rx:5}</style>
+<text x="100.0" y="48.0" class="title">The machine was not the boundary</text>
+<text x="100.0" y="78.0" class="sub">Median peak sampled process RSS and current DuckLake managed bytes.</text>
+<text x="100.0" y="108.0" class="value">Peak process RSS</text>
+<rect x="133.6" y="449.8" width="67.1" height="20.2" fill="#4f8fbf" class="bar"/>
+<text x="167.1" y="440.8" class="value" text-anchor="middle">0.21</text>
+<text x="167.1" y="498.0" class="axis" text-anchor="middle">quick</text>
+<rect x="234.3" y="440.6" width="67.1" height="29.4" fill="#4f8fbf" class="bar"/>
+<text x="267.9" y="431.6" class="value" text-anchor="middle">0.31</text>
+<text x="267.9" y="498.0" class="axis" text-anchor="middle">small</text>
+<rect x="335.0" y="393.5" width="67.1" height="76.5" fill="#4f8fbf" class="bar"/>
+<text x="368.6" y="384.5" class="value" text-anchor="middle">0.81</text>
+<text x="368.6" y="498.0" class="axis" text-anchor="middle">medium</text>
+<rect x="435.7" y="157.5" width="67.1" height="312.5" fill="#4f8fbf" class="bar"/>
+<text x="469.3" y="148.5" class="value" text-anchor="middle">3.33</text>
+<text x="469.3" y="498.0" class="axis" text-anchor="middle">large</text>
+<text x="570.0" y="532.0" class="axis" text-anchor="end">GiB</text>
+<text x="670.0" y="108.0" class="value">Current managed data</text>
+<rect x="703.6" y="469.5" width="67.1" height="0.5" fill="#d06b45" class="bar"/>
+<text x="737.1" y="460.5" class="value" text-anchor="middle">0.01</text>
+<text x="737.1" y="498.0" class="axis" text-anchor="middle">quick</text>
+<rect x="804.3" y="464.0" width="67.1" height="6.0" fill="#d06b45" class="bar"/>
+<text x="837.9" y="455.0" class="value" text-anchor="middle">0.14</text>
+<text x="837.9" y="498.0" class="axis" text-anchor="middle">small</text>
+<rect x="905.0" y="407.5" width="67.1" height="62.5" fill="#d06b45" class="bar"/>
+<text x="938.6" y="398.5" class="value" text-anchor="middle">1.42</text>
+<text x="938.6" y="498.0" class="axis" text-anchor="middle">medium</text>
+<rect x="1005.7" y="157.5" width="67.1" height="312.5" fill="#d06b45" class="bar"/>
+<text x="1039.3" y="148.5" class="value" text-anchor="middle">7.11</text>
+<text x="1039.3" y="498.0" class="axis" text-anchor="middle">large</text>
+<text x="1140.0" y="532.0" class="axis" text-anchor="end">GiB</text>
+</svg>

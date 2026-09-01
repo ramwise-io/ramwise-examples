@@ -1,0 +1,21 @@
+schema_version: 2
+job:
+  id: a1eee4d4-83d3-400c-9448-07c87e8db80b
+  project_id: e50b4b0a-879f-4ec8-8daf-8d892f15091c
+  name: Run DuckLake workload
+  description: Execute the complete single-node DuckLake workload at a selected benchmark
+    profile.
+  notebook: run_workload.py
+  entrypoint_type: marimo
+  schedule: null
+  parameters:
+    profile: quick
+    repetition: 0
+    phase: warmup
+  enabled: true
+  resource_profile: job
+  timeout_seconds: 2700
+  max_retries: 0
+  archived_at: null
+  created_at: '2026-09-01T06:29:58.517436+00:00'
+  updated_at: '2026-09-01T06:29:58.517436+00:00'

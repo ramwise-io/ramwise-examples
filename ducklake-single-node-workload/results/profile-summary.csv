@@ -1,0 +1,5 @@
+profile,runs,profile_rows_label,duration_median_seconds,duration_min_seconds,duration_max_seconds,step_median_seconds,step_min_seconds,step_max_seconds,product_gap_median_seconds,peak_rss_median_gib,peak_rss_min_gib,peak_rss_max_gib,managed_median_gib,managed_min_gib,managed_max_gib,all_checks_passed
+quick,5,100k orders · 200k events,59.985,58.395,61.654,5.141,4.822,5.356,54.629,0.215,0.203,0.217,0.012,0.012,0.012,True
+small,5,1M orders · 2M events,64.718,57.15,67.716,10.748,9.292,11.212,55.427,0.313,0.307,0.319,0.137,0.137,0.137,True
+medium,5,10M orders · 20M events,117.377,117.087,119.68,59.653,57.419,60.591,59.089,0.815,0.809,0.83,1.422,1.422,1.422,True
+large,5,50M orders · 100M events,288.435,252.569,302.288,235.878,202.347,250.685,50.222,3.329,3.32,3.341,7.111,7.11,7.111,True
