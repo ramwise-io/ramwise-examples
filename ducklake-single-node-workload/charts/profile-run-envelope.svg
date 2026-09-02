@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 650" role="img">
 <title>One node, four workload scales</title>
-<desc>Median timed workload and complete retained Anatini Run durations across quick, small, medium, and large profiles.</desc>
+<desc>Median timed workload and complete retained run durations across quick, small, medium, and large profiles.</desc>
 <rect width="100%" height="100%" fill="#fbfaf7"/>
 <style>text{font-family:Inter,ui-sans-serif,system-ui,sans-serif;fill:#173a34}.title{font-size:28px;font-weight:700}.sub{font-size:15px;fill:#5f716d}.axis{font-size:13px;fill:#65736f}.value{font-size:14px;font-weight:650}.grid{stroke:#dfe6e2;stroke-width:1}.range{stroke:#173a34;stroke-width:2}.bar{rx:5}</style>
 <text x="105.0" y="48.0" class="title">One node, four workload scales</text>
-<text x="105.0" y="78.0" class="sub">Median of five measured Runs; whiskers show min–max. Logarithmic seconds axis.</text>
+<text x="105.0" y="78.0" class="sub">Median of five measured runs; whiskers show min–max. Logarithmic seconds axis.</text>
 <line x1="105" y1="545.0" x2="1105" y2="545.0" class="grid"/>
 <text x="93.0" y="550.0" class="axis" text-anchor="end">1s</text>
 <line x1="105" y1="465.8" x2="1105" y2="465.8" class="grid"/>
@@ -59,5 +59,5 @@
 <rect x="791" y="42" width="7" height="18" fill="#d06b45"/>
 <text x="807.0" y="57.0" class="axis">timed steps (profile color)</text>
 <rect x="990" y="42" width="18" height="18" fill="#173a34" rx="4"/>
-<text x="1017.0" y="57.0" class="axis">full Run</text>
+<text x="1017.0" y="57.0" class="axis">full run</text>
 </svg>

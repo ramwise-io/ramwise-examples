@@ -1,8 +1,8 @@
-# DuckLake Single-Node Workload Lab
+# DuckLake Single-Node Workload
 
 Companion to **[DuckLake on One Machine](https://ramwise.dev/blog/ducklake-single-node-workload/)**.
 
-This is the public evidence companion for a normal data-engineering workflow built from DuckLake, DuckDB, marimo, and Anatini. It is deliberately not a one-query engine microbenchmark.
+This repository preserves the public parts of a complete data-engineering workload built around DuckDB, DuckLake, and marimo. It is a workflow study rather than a one-query engine benchmark.
 
 One root notebook calls eight child notebooks that:
 
@@ -15,33 +15,35 @@ One root notebook calls eight child notebooks that:
 7. compare current and historical DuckLake snapshots; and
 8. publish measurements, tables, and a chart.
 
-The locked study ran four profiles from 100,000 base orders / 200,000 events through 50 million base orders / 100 million events. Each profile has five measured Runs. All 20 measured Runs succeeded and passed all 16 checks.
+The study ran four profiles from 100,000 base orders and 200,000 events through 50 million base orders and 100 million events. Each profile has five measured runs. All 20 measured runs passed all 16 checks.
 
 ## Start with the output
 
-The static marimo exports contain the code and the output developers saw in the retained Runs:
+The static marimo exports show the code and output captured during the median quick and large runs:
 
-- [`exports/quick-pipeline.html`](exports/quick-pipeline.html) — median quick pipeline Run;
-- [`exports/quick-results.html`](exports/quick-results.html) — quick results notebook;
-- [`exports/large-pipeline.html`](exports/large-pipeline.html) — median large pipeline Run;
-- [`exports/large-results.html`](exports/large-results.html) — large results notebook.
+- [`exports/quick-pipeline.html`](exports/quick-pipeline.html)
+- [`exports/quick-results.html`](exports/quick-results.html)
+- [`exports/large-pipeline.html`](exports/large-pipeline.html)
+- [`exports/large-results.html`](exports/large-results.html)
 
-Download and open an HTML file locally. It is self-contained and does not execute the workload again.
+Download an HTML file and open it in a browser. It does not execute the workload again. The page loads the marimo frontend from its public CDN, so the first viewing requires network access.
 
-The four publication charts are under [`charts/`](charts/). Sanitized derived evidence is under [`results/`](results/). The exact project source—manifest, Job, marimo notebooks, SQL, test, and method notes—is under [`project/`](project/).
+The publication figures are under [`charts/`](charts/). Derived CSV and JSON evidence is under [`results/`](results/). The exact marimo source used by the measured job is under [`notebooks/`](notebooks/).
 
-## What is and is not public here
+## About the notebook source
 
-The committed results are derived summaries: the Run index, all step measurements, profile summaries, and step summaries. The full retained raw Run bundles contain host-specific operational evidence and remain in the research record; they are not required to inspect or regenerate the public charts.
+The notebooks are preserved as measured, not rewritten into a second benchmark after the fact. Most of their work is ordinary DuckDB SQL against a DuckLake catalog. A few small helper calls came from the filesystem-backed job runner used for the experiment: opening the project lake, calling child notebooks, displaying output, and retaining result files.
 
-The project snapshot excludes generated source data, the DuckLake catalog/Parquet lake, retained Runs, caches, package environments, and secrets. Those are workspace/runtime state, not teaching source.
+Those helpers are described in [`notebooks/README.md`](notebooks/README.md). The source is useful for inspecting the workload and adapting its SQL, but this folder is not advertised as a standalone Python package or a turnkey benchmark command.
 
-## Reproduce the analysis
+## Evidence boundary
 
-The analysis and charts were generated mechanically from the locked raw Runs. The public CSVs are sufficient to inspect every reported aggregate. See [`METHODOLOGY.md`](METHODOLOGY.md) for the environment, measurement boundary, profile sizes, and limitations.
+The committed result files contain the run index, individual step measurements, profile summaries, and step summaries used by the article. The full retained run bundles include host-specific operational evidence and remain in the research record.
 
-To rerun the full workload, import the project source into a compatible Anatini workspace, install the documented Python dependencies, and run the saved Job. The source uses Anatini's notebook workflow helpers and project-local DuckLake connection, so it is not presented as a standalone pip package.
+Generated source data, the 61 GiB historical lake, package environments, caches, and credentials are intentionally absent. They are unnecessary for checking the reported aggregates and would make this a poor public example.
+
+See [`METHODOLOGY.md`](METHODOLOGY.md) for the environment, timing boundaries, workload sizes, and limitations.
 
 ## Result in one sentence
 
-On the documented high-end Windows workstation, the largest workflow remained a roughly five-minute retained Run with 3.33 GiB median sampled peak RSS—but repeated snapshots made storage maintenance a real part of the design.
+On the documented high-end Windows workstation, the largest workflow took roughly five minutes and reached 3.33 GiB median sampled peak RSS; repeated snapshots made storage housekeeping the part that could not be ignored.

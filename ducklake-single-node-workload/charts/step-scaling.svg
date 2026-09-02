@@ -4,7 +4,7 @@
 <rect width="100%" height="100%" fill="#fbfaf7"/>
 <style>text{font-family:Inter,ui-sans-serif,system-ui,sans-serif;fill:#173a34}.title{font-size:28px;font-weight:700}.sub{font-size:15px;fill:#5f716d}.axis{font-size:13px;fill:#65736f}.value{font-size:14px;font-weight:650}.grid{stroke:#dfe6e2;stroke-width:1}.range{stroke:#173a34;stroke-width:2}.bar{rx:5}</style>
 <text x="110.0" y="48.0" class="title">Where the time went</text>
-<text x="110.0" y="78.0" class="sub">Median internal step time across five Runs per profile. Logarithmic milliseconds axis.</text>
+<text x="110.0" y="78.0" class="sub">Median internal step time across five runs per profile. Logarithmic milliseconds axis.</text>
 <line x1="110" y1="484.9" x2="1200" y2="484.9" class="grid"/>
 <text x="98.0" y="489.9" class="axis" text-anchor="end">10ms</text>
 <line x1="110" y1="399.8" x2="1200" y2="399.8" class="grid"/>

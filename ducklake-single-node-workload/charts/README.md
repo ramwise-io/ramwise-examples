@@ -1,6 +1,6 @@
 # Publication charts
 
-- `profile-run-envelope.svg` — timed work versus full retained Run across profiles;
+- `profile-run-envelope.svg` — timed work versus the complete retained run across profiles;
 - `step-scaling.svg` — median step timing by profile on a logarithmic scale;
 - `resource-envelope.svg` — sampled process memory and current managed storage;
 - `large-workload-flow.svg` — the seven-step large workflow with median timings.

@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 390" role="img">
-<title>The large Run was a workflow, not one query</title>
+<title>Where the large run spent its time</title>
 <desc>Seven-step workload flow annotated with median large-profile elapsed time and output rows.</desc>
 <rect width="100%" height="100%" fill="#fbfaf7"/>
 <style>text{font-family:Inter,ui-sans-serif,system-ui,sans-serif;fill:#173a34}.title{font-size:28px;font-weight:700}.sub{font-size:15px;fill:#5f716d}.axis{font-size:13px;fill:#65736f}.value{font-size:14px;font-weight:650}.grid{stroke:#dfe6e2;stroke-width:1}.range{stroke:#173a34;stroke-width:2}.bar{rx:5}</style>
-<text x="45.0" y="44.0" class="title">The large Run was a workflow, not one query</text>
-<text x="45.0" y="74.0" class="sub">Median of five Runs; 50M orders, 2.5M changes, 100M events.</text>
+<text x="45.0" y="44.0" class="title">Where the large run spent its time</text>
+<text x="45.0" y="74.0" class="sub">Median of five runs; 50M orders, 2.5M changes, 100M events.</text>
 <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8aa09a"/></marker></defs>
 <rect x="45" y="130" width="160" height="130" fill="#eef4f1" stroke="#b7cac3" rx="12"/>
 <text x="125.0" y="164.0" class="value" text-anchor="middle">generate</text>
@@ -47,5 +47,5 @@
 <text x="1289.0" y="184.0" class="value" text-anchor="middle">history</text>
 <text x="1289.0" y="218.0" class="title" font-size="22px" text-anchor="middle">0.60s</text>
 <text x="1289.0" y="242.0" class="axis" text-anchor="middle">2 rows out</text>
-<text x="45.0" y="330.0" class="sub">Every Run also retained source, parameters, logs, checks, results, and rendered notebooks.</text>
+<text x="45.0" y="330.0" class="sub">Every run also retained source, parameters, logs, checks, results, and rendered notebooks.</text>
 </svg>
