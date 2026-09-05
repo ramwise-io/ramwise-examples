@@ -16,22 +16,24 @@ The same engine processes five YAML source definitions spanning three unrelated
 public-data shapes: synthetic clinical-trial data, CMS NPPES-shaped provider
 archives, and GTFS transit feeds.
 
-## Start with the output
+## Follow the notebook evidence
 
-These are output-only HTML snapshots derived from retained notebook runs:
+Read the three static marimo snapshots in this order:
 
-- [`exports/framework-self-test.html`](exports/framework-self-test.html) — verifies
+- [Framework self-test](https://ramwise.dev/notebooks/structured-file-intake/framework-self-test.html) — verifies
   the intentionally small reusable surface: configuration loading, streaming
   identity, and source execution.
-- [`exports/intake-examples.html`](exports/intake-examples.html) — shows the
+- [Duplicate-safe examples run](https://ramwise.dev/notebooks/structured-file-intake/intake-examples.html) — shows the
   duplicate-safe examples Job rediscovering all configured files without loading
   another copy of accepted rows.
-- [`exports/intake-results.html`](exports/intake-results.html) — queries the
+- [Verified results](https://ramwise.dev/notebooks/structured-file-intake/intake-results.html) — queries the
   retained DuckLake Intake state for delivery, attempt, rejection, supersession,
   and accepted-row provenance evidence.
 
-Download an HTML file and open it in a modern browser. Each snapshot is standalone,
-requires no network connection, and does not execute the ingestion again.
+Those links open rendered notebooks on ramwise.dev. Downloadable copies are kept
+under [`exports/`](exports/) as retained artifacts; GitHub displays their HTML
+source rather than rendering it. The hosted pages use the same files with pinned,
+self-hosted marimo assets and do not execute the ingestion again.
 
 ## Captured result
 

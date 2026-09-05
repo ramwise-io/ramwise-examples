@@ -1,48 +1,307 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Anatini output-only notebook snapshot">
-  <link rel="icon" href="data:,">
-  <title>Anatini Intake — Framework Self-Test</title>
-  <style>
-    :root { color-scheme: light dark; --ink: #18212f; --muted: #5d6878;
-      --line: #dce2ea; --panel: #f7f9fc; --accent: #3156d3; --bg: #ffffff; }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--ink);
-      font: 16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
-    .eyebrow { color: var(--accent); font-size: .78rem; font-weight: 750;
-      letter-spacing: .12em; text-transform: uppercase; }
-    h1 { max-width: 900px; margin: .4rem 0 1rem; font-size: clamp(2rem, 5vw, 3.6rem);
-      line-height: 1.05; letter-spacing: -.04em; }
-    h2 { margin: 2.4rem 0 .75rem; font-size: 1.3rem; letter-spacing: -.015em; }
-    p { max-width: 820px; color: var(--muted); }
-    .snapshot-note { margin: 0 0 2.25rem; padding: .8rem 1rem; border: 1px solid var(--line);
-      border-radius: 10px; background: var(--panel); color: var(--muted); }
-    .table-scroll { overflow-x: auto; margin: .65rem 0 1.5rem; border: 1px solid var(--line);
-      border-radius: 12px; background: var(--bg); }
-    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
-    th, td { padding: .7rem .8rem; border-bottom: 1px solid var(--line); text-align: left;
-      vertical-align: top; white-space: nowrap; }
-    th { background: var(--panel); color: var(--muted); font-size: .74rem;
-      letter-spacing: .035em; text-transform: uppercase; }
-    tbody tr:last-child td { border-bottom: 0; }
-    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
-      color: var(--muted); font-size: .82rem; }
-    @media (prefers-color-scheme: dark) { :root { --ink: #edf2f8; --muted: #aab5c5;
-      --line: #303947; --panel: #181e27; --accent: #91a7ff; --bg: #10141b; } }
-  </style>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; worker-src 'self' blob:; child-src 'self' blob:; connect-src 'self'; base-uri 'none'; form-action 'none'" />
+    <link rel="icon" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/apple-touch-icon.png" />
+    <link rel="manifest" crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>self_test.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>Intake self-test</title>
+    <script type="module" crossorigin crossorigin="anonymous" src="/notebooks/_marimo/0.23.16/assets/index-Gv23EHlE.js"></script>
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/preload-helper-TXkS1QI3.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/objects-BlG0ZrO0.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/chunk-LvLJmgfZ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/react-Bj1aDYRI.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/compiler-runtime-B3qBwwSJ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/jsx-runtime-Blw4afVn.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useEventListener-C0195JsF.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/defaultLocale-DOVIEEPN.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/precisionRound-i2ImZxgc.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/defaultLocale-BUCH2FMc.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/vega-loader.browser-Dun7Qe4B.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/tooltip-B7U4xkIN.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/clsx-XrBBnd7s.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/cn-DYvqRARy.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/badge-B92a4ePY.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/button-DDGiD1NW.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/react-dom-CSu739Rf.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/fullscreen-CTDqNQr6.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/menu-items-CCi6aOPm.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-BLN8PNJV.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/createLucideIcon-w-Qo9n0R.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/check-rzLRd0j9.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/x-C-Eq0ag8.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/select-BP75_5jJ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/tooltip-4bZlU7jl.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/use-toast-BwJoaaDM.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useEvent-D91BmmQi.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/invariant-CkiqGLcK.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/isObject-DvLSfCY5.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/_baseFor-DKD1r8uL.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/merge-_9WLTEyt.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/zod-H_cgTO0M.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/utils-BWBBpCkT.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/constants-CDyU_g2F.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/session-BmukRjSi.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/Deferred-D2igisxY.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/config-B-Q7J_6d.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/uuid-ImXS-885.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/DeferredRequestRegistry-C8EV1PoE.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/requests-9-v2bhoi.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useLifecycle-lLOBhc-1.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useNonce-CbdaHKzX.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useTheme-Bxv9B31g.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/arrays-DbOq36rN.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/strings--BknHX9C.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/once-CGKw_kwj.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/capabilities-DoEg0XwL.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/createReducer-DGx5Af-C.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/paths-BKO-pHK6.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-12S8I4CH.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-DYEuVkEX.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-CiVShZKM.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-BJZAIIze.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-aRc_dRed.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-DnjsPBRJ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-DcwTQG1A.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-CPjTeT8p.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dist-DI1-Z60I.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/stex-FMMSUPAS.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/toDate-Ct2FT81-.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/purify.es-CWmnYhGI.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/cjs-D5tzp-Y6.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/isSymbol-BT6B8Bon.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/now-CsYTPAhW.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/debounce-OiXznToA.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/database-zap-CKO8g4BU.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/main-BNL5rxQw.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/cells-CJLUCcQg.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/kbd-C5HnBH5U.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useInstallPackage-WiYBwhUO.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/alert-dialog-Bb8Lz8ko.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dialog-BCVepWLJ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useDebounce-JDKr83KO.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/numbers-rmawRqQP.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/SSRProvider-BUSmWJKC.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/context-BFPaAUK_.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useNumberFormatter-4-Qvf4uR.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/usePress-5hBv4sjD.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/input-JxFwu-3G.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/ImperativeModal-fY-ZfT0b.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/cell-link-CWQ4BYr-.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/config-BJVx3eBW.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/alert-jlwhGxSb.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/chevron-right-BS_NcSch.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dropdown-menu-dHmZR8bI.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/links-wcQA1Np1.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useRunCells-DZ4glj3f.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/copy-Bxb1_Gtw.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/copy-3iHFdt22.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/copy-icon-neDQUo4Q.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/RenderHTML-C1rWkDWe.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/datasource-DbljozeY.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/state-Rxc-B11B.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/hat-glasses-BttHlyvs.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/package-Bxz_8e44.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/sparkles-DUCpRFlS.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/MarimoErrorOutput-Cu5WMawt.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/ErrorBoundary-DzTD8LVq.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/eye-off-BOZA7gbn.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/refresh-cw-CYq4mK5a.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/tree-actions-BiQ4VzX-.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/spinner-D-V4psAa.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/html-to-image-CN9yTa5s.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/focus-B6HBbAwF.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useAsyncData-Bg5iAViP.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/LazyAnyLanguageCodeMirror-A-Ant1Ad.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/micromark-factory-space-Dx_STMJD.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/chunk-5FQGJX7Z-CYQpNADu.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/markdown-renderer-CzJx-MnJ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/command-Dqxie4gq.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/field-BsxD35VE.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/popover-Bcz1Zikb.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/errors-PgHhDa-M.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/download-DwYUg-o4.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/table-CH2plyy9.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useIframeCapabilities-j6fR_dBA.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/error-banner-BSxEOIn2.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/formats-DzmLpc9A.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/utils-CCTAhdFi.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/en-US-CjNeNXDB.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/isValid-D7naiWNs.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/dates-C2LWzsCZ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/extends-B9D0JO9U.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/emotion-is-prop-valid.esm-lG8j6oqk.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useDateFormatter-rtpVEy3J.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/react-icons.esm-D4GMDkIf.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/RSPContexts-WiCgGm__.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/table-D-tcnZC7.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/ellipsis-C_B8Ux9M.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/external-link-BOlXZUla.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/message-circle-dL5J5ZsZ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/plus-AgXtozBz.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/trash-2-72W0TZ3L.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/react-resizable-panels.browser.esm-Z-MD3n3J.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/JsonOutput-D2UI9WX5.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/chart-no-axes-column-iDRxid4h.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/square-function-DNNRTPQJ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/spec-C7opZZRp.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/column-preview-DREOGG_c.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/icons-CIPE8AIY.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/radio-group-CcU5wNVj.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/floating-outline-DBlzcHYf.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/switch-OVajJBPR.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/objectWithoutPropertiesLoose-CboCOq4o.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/esm-B30N1GS0.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/readonly-python-code-CYfbPYQ0.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/file-headphone-DAu6VO6j.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/file-CJH9JNGH.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/image-5XI2VU-q.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/file-icons-CODNoWOy.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/events-90X9nql5.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/share-852X_cqy.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/blob-BNTWOaI9.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/memoize-Tp7rARFe.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/get-C-qh_et5.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/_baseSet-CsW0tABf.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/state-CsGOoEZv.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/label-CqjrpwRC.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/form-W6ZZMHnc.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/textarea-DtCcemo9.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/refresh-ccw-sLaKP2vj.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/form-BYlqbYKI.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/renderShortcut-Bl8_FVn8.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useBoolean-CFj86iac.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/useDeepCompareMemoize-CSMoa-ga.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/types-jdbI9Q8O.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/semaphore-C-Nli4KG.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/fileToBase64-hLJmVjNJ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/pathUtils-icFgkNy9.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/prop-types-C638SUfx.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/es-gYgfF8y5.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/_hasPath-hMc_3QZy.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/hasIn-CSsM95b1.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/flatten-Bd5tsfm_.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/pick-D1xb4gl6.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/code-xml-aSiY8T7C.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/globe-Dwo3iXzC.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/house-DS0r7dNZ.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/square-DFICx2Qv.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/triangle-alert-BL4YVsPy.js">
+    <link rel="modulepreload" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/bundle.esm-D0TWQ6iT.js">
+    <link rel="stylesheet" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/cells-BVzo2MHf.css">
+    <link rel="stylesheet" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/markdown-renderer-DdDKmWlR.css">
+    <link rel="stylesheet" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/JsonOutput-BQtz7-np.css">
+    <link rel="stylesheet" crossorigin crossorigin="anonymous" href="/notebooks/_marimo/0.23.16/assets/index-8Nlyq3mV.css">
+
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_STATIC__", {
+        value: Object.freeze({
+            files: Object.freeze({}),
+            modelNotifications: Object.freeze([]),
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
 </head>
-<body>
-  <main>
-    <div class="eyebrow">Retained Anatini Run · output-only snapshot</div>
-    <p class="snapshot-note">Captured results only. Notebook source and executable runtime state are not embedded.</p>
-    <div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class="markdown prose dark:prose-invert contents"><h1 id="intake-framework-self-test">Intake framework self-test</h1>
-<span class="paragraph">The reusable surface stays deliberately small: load one source definition, hash
-delivery bytes with streaming SHA-256, and run discovery plus ingestion.</span></span><span class="markdown prose dark:prose-invert contents"><h2 id="public-framework-contract">Public framework contract</h2></span><div class="table-scroll"><table><thead><tr><th scope="col">status</th><th scope="col">configuration loader</th><th scope="col">runner</th><th scope="col">streaming identity</th></tr></thead><tbody><tr><td>passed</td><td>True</td><td>True</td><td>True</td></tr></tbody></table></div></div>
-    <footer>Prepared for ramwise.dev from an immutable retained Run.</footer>
-  </main>
+  <body data-pagefind-ignore>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "self_test.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.23.16",
+            "serverToken": "static",
+            "config": {"ai": {"custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "after_delay", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "sharing": {"html": false, "molab": false, "wasm": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"app_title": "Intake self-test", "sql_output": "auto", "width": "medium"},
+            "view": {"showAppCode": true},
+            "notebook": {"cells": [{"code": "", "code_hash": "f6e1a20e723bb48e7d3a76855d9c30a0", "config": {"column": null, "disabled": false, "hide_code": false}, "id": "1f49eae3-556f-4978-8c29-3d1ddfd31519Hbol", "name": "_"}, {"code": "", "code_hash": "9d5e556cc6882990ff8ad661a12463d6", "config": {"column": null, "disabled": false, "hide_code": false}, "id": "1f49eae3-556f-4978-8c29-3d1ddfd31519MJUe", "name": "_"}, {"code": "", "code_hash": "f5d7ba686289fe68fe5317f0140efb0d", "config": {"column": null, "disabled": false, "hide_code": false}, "id": "1f49eae3-556f-4978-8c29-3d1ddfd31519vblA", "name": "_"}, {"code": "", "code_hash": "1cdc0be692c9e776a2979cf4952ff845", "config": {"column": null, "disabled": false, "hide_code": false}, "id": "1f49eae3-556f-4978-8c29-3d1ddfd31519bkHC", "name": "_"}], "metadata": {"marimo_version": "0.23.16"}, "version": "1"},
+            "session": {"cells": [{"code_hash": "f6e1a20e723bb48e7d3a76855d9c30a0", "console": [], "id": "1f49eae3-556f-4978-8c29-3d1ddfd31519Hbol", "outputs": []}, {"code_hash": "9d5e556cc6882990ff8ad661a12463d6", "console": [], "id": "1f49eae3-556f-4978-8c29-3d1ddfd31519MJUe", "outputs": []}, {"code_hash": "f5d7ba686289fe68fe5317f0140efb0d", "console": [], "id": "1f49eae3-556f-4978-8c29-3d1ddfd31519vblA", "outputs": []}, {"code_hash": "1cdc0be692c9e776a2979cf4952ff845", "console": [], "id": "1f49eae3-556f-4978-8c29-3d1ddfd31519bkHC", "outputs": [{"data": {"text/html": "\u003Cdiv style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'\u003E\u003Cspan class=\"markdown prose dark:prose-invert contents\"\u003E\u003Ch1 id=\"intake-framework-self-test\"\u003EIntake framework self-test\u003C/h1\u003E\n\u003Cspan class=\"paragraph\"\u003EThe reusable surface stays deliberately small: load one source definition, hash\ndelivery bytes with streaming SHA-256, and run discovery plus ingestion.\u003C/span\u003E\u003C/span\u003E\u003Cspan class=\"markdown prose dark:prose-invert contents\"\u003E\u003Ch2 id=\"public-framework-contract\"\u003EPublic framework contract\u003C/h2\u003E\u003C/span\u003E\u003Cmarimo-ui-element object-id='1f49eae3-556f-4978-8c29-3d1ddfd31519bkHC-0' random-id='f21bb005-79a3-d9f4-16f4-25fb98959196'\u003E\u003Cmarimo-table data-initial-value='[]' data-label='null' data-data='\u0026quot;[{\u0026#92;\u0026quot;status\u0026#92;\u0026quot;:\u0026#92;\u0026quot;passed\u0026#92;\u0026quot;,\u0026#92;\u0026quot;configuration_loader\u0026#92;\u0026quot;:true,\u0026#92;\u0026quot;runner\u0026#92;\u0026quot;:true,\u0026#92;\u0026quot;streaming_identity\u0026#92;\u0026quot;:true}]\u0026quot;' data-total-rows='1' data-total-columns='4' data-max-columns='50' data-banner-text='\u0026quot;\u0026quot;' data-pagination='false' data-page-size='10' data-selection='\u0026quot;multi\u0026quot;' data-show-filters='false' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'\u003E\u003C/marimo-table\u003E\u003C/marimo-ui-element\u003E\u003C/div\u003E"}, "type": "data"}]}], "metadata": {"marimo_version": "0.23.16", "script_metadata_hash": null}, "version": "1"},
+            "runtimeConfig": null,
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+
+<marimo-code hidden=""></marimo-code>
+
+<marimo-code-hash hidden="">135e26812fb2bf6c6991d7e68020f873</marimo-code-hash>
 </body>
 </html>

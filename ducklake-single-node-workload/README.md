@@ -17,16 +17,16 @@ One root notebook calls eight child notebooks that:
 
 The study ran four profiles from 100,000 base orders and 200,000 events through 50 million base orders and 100 million events. Each profile has five measured runs. All 20 measured runs passed all 16 checks.
 
-## Start with the output
+## Follow the notebook evidence
 
-The static marimo exports show the code and output captured during the median quick and large runs:
+Read the four static marimo snapshots in this order:
 
-- [`exports/quick-pipeline.html`](exports/quick-pipeline.html)
-- [`exports/quick-results.html`](exports/quick-results.html)
-- [`exports/large-pipeline.html`](exports/large-pipeline.html)
-- [`exports/large-results.html`](exports/large-results.html)
+- [Quick pipeline](https://ramwise.dev/notebooks/ducklake-single-node-workload/quick-pipeline.html) — follows the root workload through all eight notebook steps.
+- [Quick results](https://ramwise.dev/notebooks/ducklake-single-node-workload/quick-results.html) — presents measurements and correctness evidence for the smallest profile.
+- [Large pipeline](https://ramwise.dev/notebooks/ducklake-single-node-workload/large-pipeline.html) — follows the same workload at the largest measured scale.
+- [Large results](https://ramwise.dev/notebooks/ducklake-single-node-workload/large-results.html) — presents the large-run timings, resource envelope, and final checks.
 
-Download an HTML file and open it in a browser. It does not execute the workload again. The page loads the marimo frontend from its public CDN, so the first viewing requires network access.
+Those links open rendered notebooks on ramwise.dev. Downloadable copies are kept under [`exports/`](exports/) as retained artifacts; GitHub displays their HTML source rather than rendering it. The hosted pages use the same files with pinned, self-hosted marimo assets and do not execute the workload again.
 
 The publication figures are under [`charts/`](charts/). Derived CSV and JSON evidence is under [`results/`](results/). The exact marimo source used by the measured job is under [`notebooks/`](notebooks/).
 
