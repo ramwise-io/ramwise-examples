@@ -23,9 +23,9 @@ Read the three static marimo snapshots in this order:
 - [Framework self-test](https://ramwise.dev/notebooks/structured-file-intake/framework-self-test.html) — verifies
   the intentionally small reusable surface: configuration loading, streaming
   identity, and source execution.
-- [Duplicate-safe examples run](https://ramwise.dev/notebooks/structured-file-intake/intake-examples.html) — shows the
-  duplicate-safe examples Job rediscovering all configured files without loading
-  another copy of accepted rows.
+- [Ingestion Job and duplicate-safe rerun](https://ramwise.dev/notebooks/structured-file-intake/intake-examples.html) — shows the
+  examples notebook loading the shared framework, retrieving `run_source()`, and
+  rediscovering all configured files without loading another copy of accepted rows.
 - [Verified results](https://ramwise.dev/notebooks/structured-file-intake/intake-results.html) — queries the
   retained DuckLake Intake state for delivery, attempt, rejection, supersession,
   and accepted-row provenance evidence.
@@ -42,13 +42,37 @@ At the published snapshot:
 - 5 configured sources had retained deliveries;
 - 8 content-identified deliveries existed: 5 loaded and 3 superseded;
 - successful load attempts read 40 rows, accepted 38, and rejected 2;
-- renamed byte-identical files and subsequent reruns produced 32 duplicate
+- renamed byte-identical files and subsequent reruns produced 52 duplicate
   attempts without duplicating accepted rows; and
 - every accepted Raw row carried delivery, attempt, Run, package-member,
   source-row, and load-time provenance.
 
-The attempt count is intentionally a point-in-time figure: safe reruns add
+The current snapshot contains 52 duplicate attempts. That count is intentionally
+a point-in-time figure: safe reruns add
 duplicate-attempt evidence while leaving the accepted data unchanged.
+
+## What calls what
+
+The implementation was tested as two projects rather than one blended notebook:
+
+```text
+Intake Framework
+└── notebooks/intake.py
+    └── returns load_source() and run_source()
+                 ▲
+                 │ execute once and retrieve run_source
+                 │
+Intake Examples
+├── config/intake/*.yaml
+├── files/inbox/*
+└── notebooks/ingest_sources.py
+    └── run_source(source_id) for five configured sources
+        ├── accepted rows → intake_examples.raw
+        └── delivery state → intake_examples.intake
+```
+
+The results notebook is downstream of that path: it queries retained state and
+provenance but does not ingest the files itself.
 
 ## Evidence boundary
 
