@@ -1,0 +1,22 @@
+{
+  "run_at_utc": "2026-08-27T08:16:10.492022+00:00",
+  "protocol": "analysis/protocol.md",
+  "protocol_lock_commit": "8eb28aa42211d373974d3c63a0ec4745a57f946d",
+  "run_class": "final post-lock benchmark",
+  "exploratory_run_excluded": true,
+  "seed": 20260827,
+  "sizes": [10000, 100000, 500000],
+  "lookup_reps": 7,
+  "aggregate_reps": 3,
+  "update_reps": 5,
+  "append_batches": 9,
+  "append_batch_size": 1000,
+  "python": "3.13.5",
+  "sqlite": "3.46.1",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "filesystem_for_temp_storage": "ext4 on /dev/vda",
+  "execution_environment_note": "Ephemeral Linux execution environment; exact timings should be rerun on target hardware/filesystem before being generalized.",
+  "sqlite_journal_mode": "WAL",
+  "sqlite_synchronous": "FULL"
+}

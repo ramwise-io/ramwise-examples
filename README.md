@@ -27,6 +27,7 @@ benchmark harnesses. These are examples, not production libraries.
 | [`gpu-ml-pipeline-boundary`](gpu-ml-pipeline-boundary/) | An output-complete notebook comparing CPU, accelerated, native-GPU, and mixed-placement classical ML pipelines | [I Moved an Entire ML Pipeline to the GPU](https://ramwise.dev/blog/gpu-ml-pipeline-boundary/) |
 | [`custom-gpu-computing-cupy-cuda`](custom-gpu-computing-cupy-cuda/) | An output-complete notebook comparing NumPy, composed CuPy, fused CuPy, and handwritten CUDA with launch, transfer, and layout controls | [I Wrote the Same GPU Operation Six Ways](https://ramwise.dev/blog/custom-gpu-computing-cupy-cuda/) |
 | [`ducklake-single-node-workload`](ducklake-single-node-workload/) | A complete DuckLake/DuckDB/marimo data-engineering workflow, four locked scale profiles, derived evidence, and static notebook exports | [DuckLake on One Machine](https://ramwise.dev/blog/ducklake-single-node-workload/) |
+| [`sqlite-vs-jsonl-local-first`](sqlite-vs-jsonl-local-first/) | A standard-library benchmark of unindexed JSONL against SQLite for lookup, aggregate, update and append, with the locked Linux run and its raw timings | [The Row Count Was the Wrong Way to Choose Between SQLite and JSONL](https://ramwise.dev/blog/sqlite-or-jsonl-row-count-wrong-question/) |
 
 ## Running
 
